@@ -5,8 +5,12 @@
   <link rel="shortcut icon" type="image/png" href="favicon.png">
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <title>Hai Lin Zhang - Projects</title>
+<head>
 <style>
-
+/* Cursor */
+html {
+	cursor: url("plane2.png"), default !important;
+}
 /* Menu bar */
 #navbar ul {
   list-style-type: none;
@@ -31,6 +35,7 @@
 }
 /* Change the link color on hover */
 #navbar li a:hover{
+  cursor: url("plane2.png"), default !important;
   background-color:	#6495ED;
   transition-duration: 0.6s;
 }
@@ -38,6 +43,14 @@
 #navbar li a.active{
   background-color:	#6495ED;
   cursor: pointer;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  width:0px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color:transparent;
 }
 
 /* Background image */

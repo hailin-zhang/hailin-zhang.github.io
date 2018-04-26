@@ -6,8 +6,12 @@
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <title>Hai Lin Zhang - Social Media</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
 <style>
-
+/* Cursor */
+html {
+	cursor: url("plane2.png"), default !important;
+}
 /* Menu bar */
 #navbar ul {
   list-style-type: none;
@@ -32,13 +36,21 @@
 }
 /* Change the link color on hover */
 #navbar li a:hover{
+  cursor: url("plane2.png"), default !important;
   background-color:	#6495ED;
   transition-duration: 0.6s;
 }
 /* Change the link color on select */
 #navbar li a.active{
   background-color:	#6495ED;
-  cursor: pointer;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  width:0px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color:transparent;
 }
 
 /* Background image */
@@ -80,7 +92,7 @@ h1 {
   transition: .5s ease;
   backface-visibility: hidden;
 }
-/* textbox */
+/* technical */
 .middle {
   transition: .5s ease;
   opacity: 0;
@@ -90,20 +102,81 @@ h1 {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%)
 }
-
 .container:hover .image {
+  cursor: url("plane2.png"), default !important;
   opacity: 0.3;
 }
-
 .container:hover .middle {
+  cursor: url("plane2.png"), default !important;
   opacity: 1;
 }
-
+/* textbox */
 .text {
   background-color: #708090;
+  border-radius: 2.5px;
   color: #FFE4E1;
   font-size: 14px;
+  font-family: Bookman Old Style;
   padding: 10px 20px;
+}
+
+/* Social Media header */
+@import url(https://fonts.googleapis.com/css?family=EB+Garamond|Cardo:400italic);
+
+body {
+    margin: 0;
+    background-color: #5774b8;
+}
+
+.sandbox-correct-pronounciation {
+  padding: 10em 0 10em 0;
+}
+
+.heading-correct-pronounciation {
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
+
+h2 {
+  color: #fff;
+  font-family: 'Cardo', serif;
+  font-size: 1.5em;
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  line-height: 2.2em;
+}
+
+em {
+  font-family: 'EB Garamond', serif;
+  font-size: 3.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  font-style:normal;
+  padding-top: 0.1em;
+  text-shadow: 0.07em 0.07em 0 rgba(0, 0, 0, 0.1);
+
+  &::before, &::after {
+  content: "§";
+  display: inline-block;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+    opacity: 0.2;
+  margin: 0 0.6em;
+  font-size: 0.5em;
+}
+}
+
+.bottom {
+  font-size: 1.5em;
+  letter-spacing: 0.07em;
+  font-size: 1em;
+  display: block;
 }
 
 /*
@@ -154,39 +227,40 @@ padding: 20px;"> <!-- opacity is inherited in header, so use rgba...-->
   </ul>
 </div>
 
+<!-- Social Media header -->
+<div class="sandbox sandbox-correct-pronounciation">
+  <h2 class="heading heading-correct-pronounciation">
+    follow me on
+    <em>Social Media!</em>
+  </h2>
+</div>
 <!-- Social Media Links -->
-<div id = "links" style = "font-family:Bookman Old Style; color: #FFE4E1; opacity:0.86; font-size: 18px">
-  <h3>
-  <u>Follow me on Social Media:</u>
-  </h3>
-    <br>
-    <br>
-    <div id = "container">
-      <div class = "container" style = "display: table-cell; text-align: center; width: 25%;"><a href="https://facebook.com/hzhan339">
-        <img class = "image" border="0" alt="facebook.com/hzhan339" src="facebook.png" width="200" height="200"></a></img>
-        <div class="middle">
-          <div class="text">facebook.com/hzhan339</div>
-        </div>
-        </div>
-      <div class = "container" class = "container" style = "display: table-cell; text-align: center; width: 25%;"><a href="https://github.com/hailin-zhang">
-        <img class = "image" border="0" alt="github.com/hailin-zhang" src="github.png" width="200" height="200"></a></img>
-        <div class="middle">
-          <div class="text">github.com/hailin-zhang</div>
-        </div>
-        </div>
-      <div class = "container" class = "container" class = "container" style = "display: table-cell; text-align: center; width: 25%;"><a href="https://twitter.com/hzhan339">
-        <img class = "image" border="0" alt="twitter.com/hzhan339" src="twitter.png" width="200" height="200"></a></img>
-        <div class="middle">
-          <div class="text">twitter.com/hzhan339</div>
-        </div>
-        </div>
-      <div class = "container" style = "display: table-cell; text-align: center; width: 25%;"><a href="https://linkedin.com/in/hai-lin-zhang/">
-        <img class = "image" border="0" alt="linkedin.com/hai-lin-zhang" src="linkedin.png" width="200" height="200"></a></img>
-        <div class="middle">
-          <div class="text">linkedin.com/hai-lin-zhang</div>
-        </div>
-        </div>
-    </div>
+  <div id = "container">
+    <div class = "container" style = "display: table-cell; text-align: center; width: 25%;"><a href="https://facebook.com/hzhan339">
+      <img class = "image" border="0" alt="facebook.com/hzhan339" src="facebook.png" width="200" height="200"></a></img>
+      <div class="middle">
+        <div class="text">facebook.com/hzhan339</div>
+      </div>
+      </div>
+    <div class = "container" class = "container" style = "display: table-cell; text-align: center; width: 25%;"><a href="https://github.com/hailin-zhang">
+      <img class = "image" border="0" alt="github.com/hailin-zhang" src="github.png" width="200" height="200"></a></img>
+      <div class="middle">
+        <div class="text">github.com/hailin-zhang</div>
+      </div>
+      </div>
+    <div class = "container" class = "container" class = "container" style = "display: table-cell; text-align: center; width: 25%;"><a href="https://twitter.com/hzhan339">
+      <img class = "image" border="0" alt="twitter.com/hzhan339" src="twitter.png" width="200" height="200"></a></img>
+      <div class="middle">
+        <div class="text">twitter.com/hzhan339</div>
+      </div>
+      </div>
+    <div class = "container" style = "display: table-cell; text-align: center; width: 25%;"><a href="https://linkedin.com/in/hai-lin-zhang/">
+      <img class = "image" border="0" alt="linkedin.com/in/hai-lin-zhang/" src="linkedin.png" width="200" height="200"></a></img>
+      <div class="middle">
+        <div class="text">linkedin.com/hai-lin-zhang</div>
+      </div>
+      </div>
+  </div>
 </div>
 </body>
 
