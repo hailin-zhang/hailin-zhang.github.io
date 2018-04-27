@@ -193,6 +193,27 @@ body {
 				margin-top: -29px;
 			}
 		}
+
+    #myBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      background-color: rgba(255,255,255, 0.35);
+      color: rgb(255, 228, 225);
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 4px;
+    }
+
+    #myBtn:hover {
+      cursor: url("plane2.png"), default !important;
+      background-color: rgba(255, 228, 225, 0.65);
+    }
 </style>
 </head>
 
@@ -204,7 +225,8 @@ margin-top: 5%;
 margin-left: 25%;
 margin-right: 25%;
 margin-bottom: 25%;">
-
+<!-- To top button -->
+<button onclick="topFunction()" id="myBtn" title="Go to top" style = "font-family:Bookman;">To Top</button>
 <!--Title box-->
 <div
 style = "border-style: solid;
@@ -222,7 +244,6 @@ padding: 20px;"> <!-- opacity is inherited in header, so use rgba...-->
   <ul>
     <li><a class="active" href="index.html">About Me</a></li>
     <li><a href = "projects.html">Projects & Coursework</a></li>
-    <li><a href = "experience.html">Work & Volunteer Experience</a></li>
     <li><a href = "interests.html">Interests & Hobbies</a></li>
     <li><a href = "social.html">Social Media</a></li>
   </ul>
@@ -251,5 +272,23 @@ padding: 20px;"> <!-- opacity is inherited in header, so use rgba...-->
   <p style = "text-align: right; font-size: 16px; margin: 1.5%;">Thanks a bunch for visiting my website, <br> Hai Lin. <br> <br></p>
 </div>
 </section>
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
 </body>
 </html>

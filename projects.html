@@ -72,6 +72,99 @@ h1 {
   font-size: 42px;
   text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
 }
+/* headers */
+@import url(https://fonts.googleapis.com/css?family=EB+Garamond|Cardo:400italic);
+body {
+    margin: 0;
+    background-color: #5774b8;
+}
+.sandbox-correct-pronounciation {
+  padding: 10em 0 10em 0;
+}
+.heading-correct-pronounciation {
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
+h2 {
+  color: #fff;
+  font-family: 'Cardo', Bookman Old Style;
+  font-size: 1.5em;
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  line-height: 2.2em;
+}
+em {
+  font-family: 'EB Garamond', Bookman Old Style;
+  font-size: 3.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  font-style:normal;
+  padding-top: 0.1em;
+  text-shadow: 0.07em 0.07em 0 rgba(0, 0, 0, 0.1);
+  &::before, &::after {
+  content: "§";
+  display: inline-block;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+    opacity: 0.2;
+  margin: 0 0.6em;
+  font-size: 0.5em;
+}
+}
+.bottom {
+  font-size: 1.5em;
+  letter-spacing: 0.07em;
+  font-size: 1em;
+  display: block;
+}
+
+#titles {
+  margin-top: 7%;
+  font-family: Bookman Old Style;
+  font-size: 20px;
+  color: white;
+  font-style: oblique;
+}
+
+#texts {
+  font-family: Bookman Old Style;
+  font-size: 18px;
+  color: white;
+  font-style: oblique;
+}
+
+#group div:hover{
+  background-color: rgba(53,94,153, 0.85);
+  transition-duration: 0.8s;
+  border-radius:1%;
+}
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: rgba(255,255,255, 0.35);
+  color: rgb(255, 228, 225);
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  cursor: url("plane2.png"), default !important;
+  background-color: rgba(255, 228, 225, 0.65);
+}
 </style>
 </head>
 
@@ -83,7 +176,8 @@ margin-top: 5%;
 margin-left: 25%;
 margin-right: 25%;
 margin-bottom: 25%;">
-
+<!-- To top button -->
+<button onclick="topFunction()" id="myBtn" title="Go to top" style = "font-family:Bookman;">To Top</button>
 <!--Title box-->
 <div
 style = "border-style: solid;
@@ -101,11 +195,177 @@ padding: 20px;"> <!-- opacity is inherited in header, so use rgba...-->
   <ul>
     <li><a href="index.html">About Me</a></li>
     <li><a class="active" href = "projects.html">Projects & Coursework</a></li>
-    <li><a href = "experience.html">Work & Volunteer Experience</a></li>
     <li><a href = "interests.html">Interests & Hobbies</a></li>
     <li><a href = "social.html">Social Media</a></li>
   </ul>
 </div>
 
+<!-- Projects header -->
+<div class="sandbox sandbox-correct-pronounciation">
+  <h2 class="heading heading-correct-pronounciation">
+    Personal
+    <em><u>Projects</em></u>
+  </h2> <br> <br>
+  <section class="group" id = "group">
+    <div>
+  <h3 id = "titles" style = "text-align: middle;"> <br><u>This website! - HTML & CSS</u></h3>
+  <p id = "texts" style = "text-align: left; margin: 1.5%;">
+    Learning HTML and CSS was something that I wanted to do for the longest time, but never found the time to do. Although it took me a long time to get
+    started, making this website became one of the funnest projects I've ever worked on. <br> <br>
+    In between studying for exams, I would go through some W3Schools tutorials, writing down whatever was useful in my notebook. After some time, though,
+    I realized that I had accomplished nothing at all and that my website only had a title and a header that said "Personal Website Hailin Zhang". So,
+    I just started to code. Whenever I was stuck or I didn't know how to implement something, I went to Google and I searched it up. And I think I learned a lot
+    more by <b> doing </b> than by going through some tutorials that only numbed my brain (W3Schools tutorials are really great though, I highly recommend).
+    <br> <br>
+    Overall, making this website was one of the most enjoyable and rewarding projects I've worked on yet, and even if it may be full of spaghetti code, at least it looks nice.
+    <br> <br>
+  </div>
+  </section>
+  <section class="group" id = "group">
+    <div>
+  <h3 id = "titles" style = "text-align: middle;"> <br><u>Essay Analysis App - Java</u></h3>
+  <p id = "texts" style = "text-align: left; margin: 1.5%;">
+    This is a program that I made in IntelliJ over a couple of weeks during Winter break. Back when I had to take English courses, I
+    found myself constantly scrolling through a thesaurus to look for fancy words to use to impress my professor. This program's purpose is
+    to make students' lives <b>much</b> easier by "analyzing" the user's writing and providing synonyms for words that have been used a
+    predetermined amount of times. <br>
+    <br> To accomplish this, I knew that I had to parse through their entire text, storing entries into an array, which was at least O(n) complexity,
+    with n being the number of words. I could have done this heuristically, but that would have been much too complicated for this simple program. Then,
+    I sorted their text alphabetically using quick sort (which is average case O(nlogn)), and stored them into a linked hash map to preserve ordering while
+    ensuring O(1) retrieval. Once they were sorted, it was simple to determine the number of occurances: if the word at index i is equal to the word   at i+1,
+    that's a repeat. I continued this throughout the entire text array. <br>
+    <br> I then stored the number of repeats as the value in the hash map, noting any that were greater than the user-specified "severity" level - the number
+    of acceptable repeats. To get synonyms, I used the MIT JWI, which accesses WordNet 3.0, to retrieve synonyms for every word that needed them. Finally,
+    I used JFrame to create a simple user interface consisting of popups and text boxes. <br>
+    <br> Thinking back on this project, there is a lot that I would change. I could have made my O(nlogn) program even faster with O(n) complexity by storing
+    words into a hash map without sorting alphabetically, and updating their value each time the same word is seen. However, I think that my method was a really
+    neat way of using sorting algorithms and it prepared me for my data structures course, where sorting algorithms were a major topic. In the future, I'd
+    like to update this program by creating a better user interface, as well as improved filtering of the words that needed synonyms. But for now, I'm very happy with
+    how my first project came through. <br> <br>
+  </div>
+  </section>
+</div>
+
+<div class="sandbox sandbox-correct-pronounciation">
+  <h2 class="heading heading-correct-pronounciation">
+    Academic
+    <em><u>Projects</em></u>
+  </h2> <br> <br>
+  <section class="group" id = "group">
+    <div>
+  <h3 id = "titles" style = "text-align: middle;"> <br><u>Image Maze Solver - C++</u></h3>
+  <p id = "texts" style = "text-align: left; margin: 1.5%;">
+      Depth first and breadth first traversals are at the heart of solutions to many, many problems posed on graphs. We can use traversals to detect cycles, to count
+      components, and to find spanning trees. We can also use a breadth first traversal to find the shortest path between two vertices in an unweighted graph. In my data
+      structures course, one of our assignments was to implement a program that would use a breadth first traversal to find a shortest path between a start pixel
+      and end pixel in an image, via a path where the colors of any two successive pixels cannot differ by very much. <br> <br>
+      This C++ program can solve mazes, follow paths, and preform other similar functions as long as the colors of the pixels in the path are distinct. Developing this program
+      gave me a wholesome understanding of graph traversals and allowed me to utilize the data structures I had learned, notably queues and stacks, to create an extremely efficient
+      program that solves most mazes in under 2 seconds. <br><br>
+  </div>
+  </section>
+  <section class="group" id = "group">
+    <div>
+  <h3 id = "titles" style = "text-align: middle;"> <br><u>Convex Hull & Intersection Generator - C++</u></h3>
+  <p id = "texts" style = "text-align: left; margin: 1.5%;">
+      Given a series of coordinates, I was tasked to design a program that would create a convex hull (a minimum set of points that contain all the other points) from them. As such,
+      I had to understand and translate the Graham Scan algorithm. This was my first time translating pseudocode of a well-known algorithm, and really enlightened me in the
+      nuances of creating an algorithm. Then, given 2 sets of convex hulls, I had to use the Sutherland-Hodgman algorithm to clip the polygons and find a convex intersection. Overall,
+      this was quite a hefty assignment since the algorithms required a very detailed understanding of their functionalities as well as specific data structures such as stacks. There were
+      also a ton of edge cases that required significant amounts of testing and figuring out. <br><br>
+  </div>
+  </section>
+  <section class="group" id = "group">
+    <div>
+  <h3 id = "titles" style = "text-align: middle;"> <br><u>Buses Are Us - Java</u></h3>
+  <p id = "texts" style = "text-align: left; margin: 1.5%;">
+      The final assignment in my second year software engineering course, this application maps the location of stops, buses and bus routes on the Greater Vancouver Transit system
+      and retrieves real time arrival information at those stops. It also plots the user's location on the map and highlights the nearest bus stop. To do this, the app makes use of the TransLink
+      Open API.<br><br>
+      This was my first large-scale application that was specifically designed for Android devices. It required lots of planning and preparation using UML class diagrams, as well as a significant
+      amount of black-box JUnit testing to ensure correct behaviors. I had to implement both the back-end as well as the front-end, which I was very new to doing.<br><br>
+      At the time, I can't say that it was a very enjoyable project due to the sheer difficulty of it, not to mention the time constraints. Looking back on it now, though, it was definitely the most
+      rewarding project I've worked on and was an incredible journey to complete. <br><br>
+  </div>
+  </section>
+</div>
+
+<div class="sandbox sandbox-correct-pronounciation">
+  <h2 class="heading heading-correct-pronounciation">
+    Relevant
+    <em><u>Courses</em></u>
+  </h2>
+  <section class="group" id = "group">
+    <div>
+  <h3 id = "titles" style = "text-align: middle;"> <br><u>CPSC 322: Introduction to Artificial Intelligence - python</u></h3>
+  <p id = "texts" style = "text-align: left; margin: 1.5%;">
+      Problem-solving and planning; state/action models and graph searching. Natural language understanding Computational vision. Applications of artificial intelligence. <br><br>
+  </div>
+  </section>
+  <section class="group" id = "group">
+    <div>
+  <h3 id = "titles" style = "text-align: middle;"> <br><u>CPSC 304: Introduction to Relational Databases - SQL</u></h3>
+  <p id = "texts" style = "text-align: left; margin: 1.5%;">
+      Overview of database systems, ER models, logical database design and normalization, formal relational query languages, SQL and other commercial languages, data warehouses, special topics. <br><br>
+  </div>
+  </section>
+      <section class="group" id = "group">
+        <div>
+      <h3 id = "titles" style = "text-align: middle;"> <br><u>CPSC 221: Basic Algorithms and Data Structures - C++</u></h3>
+      <p id = "texts" style = "text-align: left; margin: 1.5%;">
+          Design and analysis of basic algorithms and data structures; algorithm analysis methods, searching and sorting algorithms, basic data structures, graphs and concurrency. Learned data
+          structures such as stacks, queues, hash maps, trees (AVL, BST, B), and graphs. <br><br>
+      </div>
+      </section>
+      <section class="group" id = "group">
+        <div>
+      <h3 id = "titles" style = "text-align: middle;"> <br><u>CPSC 213: Introduction to Computer Systems - C</u></h3>
+      <p id = "texts" style = "text-align: left; margin: 1.5%;">
+          Software architecture, operating systems, and I/O architectures. Relationships between application software, operating systems, and computing hardware; critical sections, deadlock avoidance,
+          and performance; principles and operation of disks and networks. <br><br>
+      </div>
+      </section>
+      <section class="group" id = "group">
+        <div>
+      <h3 id = "titles" style = "text-align: middle;"> <br><u>CPSC 210: Software Construction - Java</u></h3>
+      <p id = "texts" style = "text-align: left; margin: 1.5%;">
+          Design, development, and analysis of robust software components. Topics such as software design, computational models, data structures, debugging, and testing. <br><br>
+      </div>
+      </section>
+      <section class="group" id = "group">
+        <div>
+      <h3 id = "titles" style = "text-align: middle;"> <br><u>CPSC 121: Models of Computation</u></h3>
+      <p id = "texts" style = "text-align: left; margin: 1.5%;">
+          Physical and mathematical structures of computation. Boolean algebra and combinations logic circuits; proof techniques; functions and sequential circuits; sets and relations; finite state machines;
+          sequential instruction execution.<br><br>
+      </div>
+      </section>
+      <section class="group" id = "group">
+        <div>
+      <h3 id = "titles" style = "text-align: middle;"> <br><u>CPSC 110: Computation, Programs, and Programming - Dr. Racket</u></h3>
+      <p id = "texts" style = "text-align: left; margin: 1.5%;">
+          Fundamental program and computation structures. Introductory programming skills. Computation as a tool for information processing, simulation and modeling, and interacting with the world.
+          Functional programming using Dr. Racket.<br><br>
+      </div>
+      </section>
+</div>
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
 </body>
 </html>
