@@ -44,7 +44,6 @@ html {
 #navbar li a.active{
   background-color:	#6495ED;
 }
-
 /* Hide scrollbar */
 ::-webkit-scrollbar {
   width:0px;
@@ -52,7 +51,6 @@ html {
 ::-webkit-scrollbar-track-piece {
   background-color:transparent;
 }
-
 /* Background image */
 body  {
   background: url("rosegarden.jpg") no-repeat center center fixed;
@@ -72,14 +70,12 @@ h1 {
   font-size: 42px;
   text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
 }
-
 /* Align horizontally */
 #container div {
-  float:left;
   display:inline-block;
   text-align: center;
+  vertical-align: middle;
 }
-
 /* Hover image effects */
 .container {
     position: relative;
@@ -88,9 +84,13 @@ h1 {
 /* picture */
 .image {
   opacity: 1;
-  display: block;
   transition: .5s ease;
   backface-visibility: hidden;
+  display: block;
+  height: auto;
+  max-width: 100%;
+  min-width: 100%;
+  vertical-align: middle;
 }
 /* technical */
 .middle {
@@ -119,25 +119,20 @@ h1 {
   font-family: Bookman Old Style;
   padding: 10px 20px;
 }
-
 /* Social Media header */
 @import url(https://fonts.googleapis.com/css?family=EB+Garamond|Cardo:400italic);
-
 body {
     margin: 0;
     background-color: #5774b8;
 }
-
 .sandbox-correct-pronounciation {
   padding: 10em 0 10em 0;
 }
-
 .heading-correct-pronounciation {
   margin: auto;
   text-align: center;
   position: relative;
 }
-
 h2 {
   color: #fff;
   font-family: 'Cardo', Bookman Old Style;
@@ -147,7 +142,6 @@ h2 {
   letter-spacing: 0.1em;
   line-height: 2.2em;
 }
-
 em {
   font-family: 'EB Garamond', Bookman Old Style;
   font-size: 3.5em;
@@ -157,7 +151,6 @@ em {
   font-style:normal;
   padding-top: 0.1em;
   text-shadow: 0.07em 0.07em 0 rgba(0, 0, 0, 0.1);
-
   &::before, &::after {
   content: "§";
   display: inline-block;
@@ -171,14 +164,12 @@ em {
   font-size: 0.5em;
 }
 }
-
 .bottom {
   font-size: 1.5em;
   letter-spacing: 0.07em;
   font-size: 1em;
   display: block;
 }
-
 /*
 Copyright Footer
 .footer {
@@ -191,7 +182,6 @@ Copyright Footer
     opacity: 0.2;
     text-align: center;
 } */
-
 </style>
 </head>
 
