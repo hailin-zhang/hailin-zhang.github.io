@@ -233,16 +233,16 @@ padding: 20px;"> <!-- opacity is inherited in header, so use rgba...-->
     found myself constantly scrolling through a thesaurus to look for fancy words to use to impress my professor. This program's purpose is
     to make students' lives <b>much</b> easier by "analyzing" the user's writing and providing synonyms for words that have been used a
     predetermined amount of times. <br>
-    <br> To accomplish this, I knew that I had to parse through their entire text, storing entries into an array, which was at least O(n) complexity,
+    <br> To accomplish this, I knew that I had to parse through the entire text, storing entries into an array, which was at least O(n) complexity,
     with n being the number of words. I could have done this heuristically, but that would have been much too complicated for this simple program. Then,
-    I sorted their text alphabetically using quick sort (which is average case O(nlogn)), and stored them into a linked hash map to preserve ordering while
+    I sorted the text alphabetically using quick sort (which is average case O(nlogn)), and stored them into a linked hash map to preserve ordering while
     ensuring O(1) retrieval. Once they were sorted, it was simple to determine the number of occurances: if the word at index i is equal to the word   at i+1,
     that's a repeat. I continued this throughout the entire text array. <br>
     <br> I then stored the number of repeats as the value in the hash map, noting any that were greater than the user-specified "severity" level - the number
     of acceptable repeats. To get synonyms, I used the MIT JWI, which accesses WordNet 3.0, to retrieve synonyms for every word that needed them. Finally,
     I used JFrame to create a simple user interface consisting of popups and text boxes. <br>
     <br> Thinking back on this project, there is a lot that I would change. I could have made my O(nlogn) program even faster with O(n) complexity by storing
-    words into a hash map without sorting alphabetically, and updating their value each time the same word is seen. However, I think that my method was a really
+    words into a hash map without sorting alphabetically, and updating the value each time the same word is seen. However, I think that my method was a really
     neat way of using sorting algorithms and it prepared me for my data structures course, where sorting algorithms were a major topic. In the future, I'd
     like to update this program by creating a better user interface, as well as improved filtering of the words that needed synonyms. But for now, I'm very happy with
     how my first project came through. <br> <br>
