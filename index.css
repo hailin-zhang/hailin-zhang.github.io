@@ -1,4 +1,59 @@
+html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+    width:100%;
+}
+
 #navbar {
     background-color:	#6B8E23;
     opacity: 0.85;
 }
+
+h1 {
+    padding: 1.5% 1.5% 1.5% 1.5%;
+    width: auto;
+}
+ 
+.openingImage {
+    background: url("images/openingBackground.jpg") center center no-repeat fixed;
+    display: table;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-size: cover;
+}
+
+.opener {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.openerText {
+    font-size: 350%;
+    color: white;
+}
+
+.openerTextBox { 
+    background: rgba(0,0,0,0.02);
+    padding: 1.5% 1.5% 3% 3%;
+    margin: 10% 15%;
+}
+
+.openerTextBox:hover { 
+    background: rgba(0,0,0,0.25);
+    padding: 1.5% 1.5% 3% 3%;
+    width: auto;
+    transition: 1s ease-in-out;
+}
+
+.block {
+    padding-top: 5%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
+
