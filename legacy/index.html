@@ -1,0 +1,295 @@
+<!-- Designed by Hai Lin Zhang April 2018-->
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <title>Hai Lin Zhang - About Me</title>
+<head>
+<style>
+/* Cursor */
+html {
+	cursor: url("plane2.png"), default !important;
+  }
+/* Menu bar */
+#navbar ul {
+  list-style-type: none;
+  padding: 0.3%;
+  overflow: hidden;
+  background-color:	#4682B4;
+  opacity: 0.95;
+  border-radius: 5px;
+  text-align:center;
+}
+/* Side by side */
+#navbar li {
+  display:inline;
+}
+/* Button text color etc */
+#navbar li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+#navbar li a:hover{
+  cursor: url("plane2.png"), default !important;
+  background-color:	#6495ED;
+  transition-duration: 0.6s;
+}
+/* Change the link color on select */
+#navbar li a.active{
+  background-color:	#6495ED;
+  cursor: pointer;
+}
+
+#group {
+  margin-top: 66%;
+  font-family: Bookman Old Style;
+  font-size: 20px;
+}
+
+#group div:hover{
+  background-color: rgba(53,94,153, 0.85);
+  transition-duration: 0.8s;
+  border-radius:1%;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  width:0px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color:transparent;
+}
+
+  /* Background image */
+body  {
+    background: url("rosegarden.jpg") no-repeat center center fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: auto; /*scroll*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+/* Title font */
+h1 {
+  font: 400 100px/1.5 'Pacifico', Helvetica, sans-serif;
+  color: rgb(255, 228, 225);
+  opacity: 1;
+  font-size: 42px;
+  text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
+}
+
+/* Quotation stuff */
+@font-face {
+    font-family: 'Sketch Block';
+    src: url('http://tangledindesign.com/codepen/fonts/sketch_block-webfont.eot');
+    src: url('http://tangledindesign.com/codepen/fonts/sketch_block-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://tangledindesign.com/codepen/fonts/sketch_block-webfont.woff') format('woff'),
+         url('http://tangledindesign.com/codepen/fonts/sketch_block-webfont.ttf') format('truetype'),
+         url('http://tangledindesign.com/codepen/fonts/sketch_block-webfont.svg#SketchBlockBold') format('svg');
+}
+@font-face {
+    font-family: 'Museo 700';
+    src: url('http://tangledindesign.com/codepen/fonts/Museo700-Regular-webfont.eot');
+    src: url('http://tangledindesign.com/codepen/fonts/Museo700-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://tangledindesign.com/codepen/fonts/Museo700-Regular-webfont.woff') format('woff'),
+         url('http://tangledindesign.com/codepen/fonts/Museo700-Regular-webfont.ttf') format('truetype'),
+         url('http://tangledindesign.com/codepen/fonts/Museo700-Regular-webfont.svg#SketchBlockBold') format('svg');
+}
+@font-face {
+    font-family: 'CallunaRegular';
+    src: url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.eot');
+    src: url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.woff') format('woff'),
+         url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.ttf') format('truetype'),
+         url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.svg#CallunaRegular') format('svg');
+}
+body {
+	color: #fff;
+}
+	.container {
+		width: 590px;
+		margin: 140px auto;
+		position: relative;
+	}
+	blockquote {
+		width: 565px;
+		font: 2.65em CallunaRegular;
+		letter-spacing: .075em;
+		float: left;
+		padding: 45px 0 30px 25px;
+		margin: 0;
+		border-top: 2px dotted #708090;
+		border-bottom: 2px dotted #708090;
+		-webkit-transform: rotate(-3deg);
+		-moz-transform: rotate(-3deg);
+	}
+	.container:before {
+		content: "“";
+		font-size: 13em;
+		position: absolute;
+		left: -100px;
+		color: #FFE4E1;
+	}
+	.container:after {
+		content: "”";
+		font-size: 13em;
+		position: absolute;
+		right: -100px;
+		top: 150px;
+		color: #FFE4E1;
+	}
+		blockquote:first-line {
+			font: 1.85em "Sketch Block";
+			color: #fff79e;
+      -webkit-text-stroke-width: 0.6px;
+      -webkit-text-stroke-color: #000;
+		}
+		blockquote:first-letter {
+			font-size: 2.9em;
+			text-transform: lowercase;
+			float: left;
+			line-height: .52em;
+			margin-right: -18px;
+			position: relative;
+			z-index: 1;
+		}
+		blockquote strong:first-child {
+			margin-left: 8px;
+			letter-spacing: 0;
+		}
+		blockquote strong:last-child {
+			font: 2em "Museo 700";
+			text-transform: uppercase;
+			letter-spacing: 0;
+		}
+		blockquote em {
+			border-bottom: 2px dotted #858585;
+		}
+		blockquote + b {
+			float: right;
+			margin-top: 10px;
+			font: 1.6em CallunaRegular;
+			letter-spacing: .15em;
+		}
+		blockquote + b:first-letter {
+			color: #fff79e;
+			font-size: 1.3em;
+			font-style: italic;
+			letter-spacing: .25em;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #F08080;
+		}
+		@-moz-document url-prefix() {
+			blockquote:first-letter {
+				margin-top: -29px;
+			}
+		}
+
+    #myBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      background-color: rgba(255,255,255, 0.35);
+      color: rgb(255, 228, 225);
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 4px;
+    }
+
+    #myBtn:hover {
+      cursor: url("plane2.png"), default !important;
+      background-color: rgba(255, 228, 225, 0.65);
+    }
+</style>
+</head>
+
+<!-- To align all structures to center -->
+<body
+style = "text-align: center;
+vertical-align: middle;
+margin-top: 5%;
+margin-left: 20%;
+margin-right: 20%;
+margin-bottom: 25%;">
+<!-- To top button -->
+<button onclick="topFunction()" id="myBtn" title="Go to top" style = "font-family:Bookman;">To Top</button>
+<!--Title box-->
+<div
+style = "border-style: solid;
+border-width: 7.5px;
+background-color: rgba(255,255,255, 0.55);
+border-color: rgba(255, 228, 225, 0.55);
+border-radius: 25px;
+padding: 20px;"> <!-- opacity is inherited in header, so use rgba...-->
+<h1>Hai Lin Zhang's Personal Website</h1>
+</div>
+<br>
+
+<!-- Menu bar -->
+<div id = "navbar" class = "navbar" style="font-family:Bookman Old Style; color:AliceBlue; opacity:0.86">
+  <ul>
+    <li><a class="active" href="index.html">About Me</a></li>
+    <li><a href = "projects.html">Projects & Coursework</a></li>
+    <li><a href = "interests.html">Interests & Hobbies</a></li>
+    <li><a href = "social.html">Social Media</a></li>
+    <li><a href = "contact.html">Contact Me</a></li>
+  </ul>
+</div>
+
+<!-- Quotation -->
+<article class="container">
+		<blockquote>
+			<strong>Imagination</strong> is <em>more important</em> than <strong>knowledge</strong>
+		</blockquote>
+		<b>Einstein, A.</b>
+</article>
+
+<!-- Text blurb -->
+<section class="group" id = "group">
+  <div>
+  <p style = "text-align: left; margin: 2%; font-style: italic;">
+    <br> Nice to meet you! I'm Hai Lin and I'm a second year Computer Science Co-op student at the University of British Columbia, minoring in Biology.
+    This is a website I created to learn HTML and CSS. <br> <br>
+    Coming into this, I had no idea what I was doing... this page used to
+    consist of only a header and a title for a good 2-3 months. After a <em>ton</em> of experimenting (and even more Googling), I'm honestly
+    pretty happy with how this turned out. That's why I think that one of the greatest assets of a developer is the ability to take risks and
+    make mistakes, especially when it comes to learning something new. <br> <br>
+    Whether you're a co-op employer or a fellow student, I hope you learn something interesting about me. <br> <br>
+    Please let me know if you find any bugs or have any suggestions!</p>
+  <p style = "text-align: right; font-size: 16px; margin: 2%;">Thanks a bunch for visiting my website, <br> Hai Lin. <br> <br></p>
+</div>
+</section>
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
+</body>
+</html>
