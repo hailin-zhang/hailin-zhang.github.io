@@ -55,5 +55,21 @@ h1 {
     padding-right: 5%;
 }
 
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.15);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card img {
+    width:20%;
+    height:auto;
+}
 
 
