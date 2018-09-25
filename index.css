@@ -53,6 +53,7 @@ h1 {
     padding-bottom: 3%;
     padding-left: 5%;
     padding-right: 5%;
+    min-height: 100%;
 }
 
 .card {
@@ -70,6 +71,52 @@ h1 {
 .card img {
     width:20%;
     height:auto;
+}
+
+.about {
+    background: url("images/aboutMe.JPG") center center no-repeat fixed;
+    display: table;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    color:aliceblue;
+}
+
+.aboutBlockLeft {
+    float: left;
+    width: 20%;
+    height:auto;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    background-color: darkslategrey;
+}
+
+.aboutBlockRight {
+    position: absolute;
+    bottom: 12%;
+    right: 5%;
+    width: 20%;
+    height:auto;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    background-color: darkslategrey;
+}
+
+a:link {
+    color:whitesmoke;
+}
+
+a:visited {
+    color: lavender;
+}
+
+a:hover {
+    color: lightblue;
 }
 
 
