@@ -123,4 +123,46 @@ a:hover {
     color: lightblue;
 }
 
+.lumohacks {
+    background: url("images/lumohacks.jpg") center center no-repeat fixed;
+    display: table;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    color:aliceblue;
+}
+
+.lumohacks h1 {
+    position:absolute;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    background-color: darkolivegreen;
+    border-radius: 2px;
+    opacity: 0.96;
+    background-size:cover;
+}
+
+.lumohacksText {
+    position: absolute;
+    bottom: 20%;
+    left: 20%;
+    max-width: 60%;
+    max-height: 80%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    background-color: seagreen;
+    border-radius: 2px;
+    opacity: 0.4;
+}
+
+.lumohacksText:hover {
+    opacity:0.96;
+    transition: 0.42s;
+}
+
 
