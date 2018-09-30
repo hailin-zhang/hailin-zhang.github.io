@@ -155,7 +155,7 @@ a:hover {
     padding-bottom: 1%;
     padding-left: 2%;
     padding-right: 2%;
-    background-color: seagreen;
+    background-color: rgb(45, 68, 48);
     border-radius: 2px;
     opacity: 0.4;
 }
@@ -165,4 +165,8 @@ a:hover {
     transition: 0.42s;
 }
 
+.lumoLogo {
+    width:300px; 
+    height:auto;
+}
 
