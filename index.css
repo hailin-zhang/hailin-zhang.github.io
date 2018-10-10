@@ -139,10 +139,14 @@ a:hover {
     padding-bottom: 1%;
     padding-left: 2%;
     padding-right: 2%;
-    background-color: darkolivegreen;
-    border-radius: 2px;
-    opacity: 0.96;
-    background-size:cover;
+    text-shadow: 2px 2px 5px darkolivegreen,
+     10px 10px 15px darkolivegreen, 
+     -1px 0 darkolivegreen, 
+     0 1px darkolivegreen, 
+     1px 0 darkolivegreen, 
+     0 -1px darkolivegreen;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 42px;
 }
 
 .lumohacksText {
@@ -168,5 +172,10 @@ a:hover {
 .lumoLogo {
     width:300px; 
     height:auto;
+}
+
+#projects {
+    background-color: rgb(90, 30, 30);
+    color: aliceblue;
 }
 
