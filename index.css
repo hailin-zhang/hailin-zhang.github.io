@@ -62,6 +62,7 @@ h1 {
     padding-bottom: 1%;
     padding-left: 2%;
     padding-right: 2%;
+    min-height: 650px;
 }
 
 .card:hover {
@@ -139,14 +140,9 @@ a:hover {
     padding-bottom: 1%;
     padding-left: 2%;
     padding-right: 2%;
-    text-shadow: 2px 2px 5px darkolivegreen,
-     10px 10px 15px darkolivegreen, 
-     -1px 0 darkolivegreen, 
-     0 1px darkolivegreen, 
-     1px 0 darkolivegreen, 
-     0 -1px darkolivegreen;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 42px;
+    text-shadow: 2px 2px 5px darkolivegreen;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
 }
 
 .lumohacksText {
@@ -179,3 +175,38 @@ a:hover {
     color: aliceblue;
 }
 
+.projectColumn {
+    float: left;
+    width: 33.3%;
+    min-height: 650px;
+}
+
+.projectColumn h5{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    color: darkslategray;
+}
+
+.projectColumn img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 550px;
+    height: 450px;
+}
+
+.projectColumn p{
+    font-size: 12px;
+    color: black;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-style: italic;
+}
+
+.projectColumn a{
+    color: darkslategray;
+}
