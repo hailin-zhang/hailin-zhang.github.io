@@ -207,6 +207,16 @@ a:hover {
     font-style: italic;
 }
 
-.projectColumn a{
+.projectColumn a {
     color: darkslategray;
+}
+
+.about img {
+    padding: 2%;
+    width: 25%;
+    height: auto;
+}
+
+.about h5 {
+    font-size: 12px;
 }
