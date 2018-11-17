@@ -31,7 +31,10 @@ h1 {
 }
 
 .openerText {
-    font-size: 350%;
+    white-space: nowrap;
+    display:block;
+    width:100%;
+    min-width:1px;
     color: white;
 }
 
@@ -49,29 +52,27 @@ h1 {
 }
 
 .block {
-    padding-top: 5%;
-    padding-bottom: 3%;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding: 5% 5% 3%;
     min-height: 100%;
 }
 
-.card {
+.experienceCard {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.15);
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding-left: 2%;
-    padding-right: 2%;
-    min-height: 650px;
+    padding: 1% 2%;
+    height: 80%;
 }
 
-.card:hover {
+.experienceCard:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.card img {
-    width:20%;
-    height:auto;
+.experienceCard:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.experienceCard img {
+    width: 20%;
+    height: auto;
 }
 
 .about {
@@ -81,17 +82,14 @@ h1 {
     width: 100%;
     position: relative;
     background-size: cover;
-    color:aliceblue;
+    color: aliceblue;
 }
 
 .aboutBlockLeft {
     float: left;
     width: 20%;
     height:auto;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding: 1% 2%;
     background-color: darkslategrey;
     border-radius: 2px;
     opacity: 0.88;
@@ -103,17 +101,14 @@ h1 {
     right: 5%;
     width: 20%;
     height:auto;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding: 1% 2%;
     background-color: darkslategrey;
     border-radius: 2px;
     opacity: 0.88;
 }
 
 a:link {
-    color:whitesmoke;
+    color: whitesmoke;
 }
 
 a:visited {
@@ -135,11 +130,8 @@ a:hover {
 }
 
 .lumohacks h1 {
-    position:absolute;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding-left: 2%;
-    padding-right: 2%;
+    position: absolute;
+    padding: 1% 2%;
     text-shadow: 2px 2px 5px darkolivegreen;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
@@ -147,12 +139,11 @@ a:hover {
 
 .lumohacksText {
     position: absolute;
-    bottom: 20%;
+    bottom: 15%;
     left: 20%;
-    max-width: 60%;
-    max-height: 80%;
+    width: 60%;
+    max-height: 65%;
     padding-top: 1%;
-    padding-bottom: 1%;
     padding-left: 2%;
     padding-right: 2%;
     background-color: rgb(45, 68, 48);
@@ -160,8 +151,12 @@ a:hover {
     opacity: 0.4;
 }
 
+.lumohacksText p {
+    font-size: 90%;
+}
+
 .lumohacksText:hover {
-    opacity:0.96;
+    opacity: 0.96;
     transition: 0.42s;
 }
 
@@ -178,14 +173,24 @@ a:hover {
 .projectColumn {
     float: left;
     width: 33.3%;
-    min-height: 650px;
+}
+
+.row {
+    display: flex;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.15);
+    padding: 1% 2%;
+    min-height: 100%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .projectColumn h5{
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding: 1% 2%;
     color: darkslategray;
 }
 
@@ -193,17 +198,14 @@ a:hover {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    min-width: 100%;
-    max-height: 450px;
+    width: 70%;
+    height: 90%;
 }
 
 .projectColumn p{
-    font-size: 12px;
+    font-size: 70%;
     color: black;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding: 1% 2%;
     font-style: italic;
 }
 
