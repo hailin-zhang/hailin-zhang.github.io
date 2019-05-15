@@ -1,156 +1,73 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-
-<!-- metadata -->
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">  
-    <link href="index.css" rel="stylesheet" type="text/css">
-    <title> Hai Lin Zhang </title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CPSC 436I A1 - Hai Lin Zhang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+    <script type="text/javascript" src="index.js"></script>
 </head>
-
-<!-- navbar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark" id = "navbar">
-    <a class="navbar-brand" href="#">Hai Lin Zhang</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="#experience">Work Experience</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#projects">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#hackathons">Hackathons</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#about">About Me</a>
-        </li>
-      </ul>
+<body onload="initSketchpad()">
+    <span id="loading-spinner"></span>
+    <canvas class="canvas" id="sketchpad" width="100px" height="100px"></canvas>
+    <div class="navbar hidden" id="navbar" onmouseover="unhideNavbar()">
+        <span class="navbar-item-selected">
+            Home
+        </span>
+        <span class="navbar-item" onclick="navToAboutMe()">
+            About Me
+        </span>  
+        <span class="navbar-item" onclick="openCitationsAlert()">
+            Citations
+        </span>
+        <span class="navbar-item" onclick="hideNavbar()">
+            Hide &#x2934;  
+        </span>
     </div>
-  </nav>
-
-  <!-- opening card -->
-  <article class="openingImage">
-    <div class="opener">
-      <div class="openerTextBox">
-        <h1 class="openerText"> Nice to meet you! My name's Hai Lin </h1>
-        <a href="#about" class="btn btn-primary btn-lg btn-dark" role="button"> Learn about me! </a>
-      </div>
-    </div>
-  </article>
-
-  <!-- work experience -->
-  <article class="block" id="experience">
-    <h1> Work Experience </h1>
-    <div class="experienceCard">
-      <img src="images/fsLogo.png"></img>
-      <h3> Junior Software Engineer </h3>
-      <h5><i> 8 Month Co-op </i></h5>
-      <p><strong> I'm currently working on the mobile team to develop and deploy our 3 mobile apps that are used around the world. </strong><br>
-      Fatigue Science is a company that develops the Readiband, a SaaS-enabled wearable that tracks a user's actigraphy. Using the SAFTE algorithm developed by the United States Air Force over 20 years
-      of research for over $40 million USD, it is able to predict the wearer's fatigue with a clinically proven 92% accuracy. Used by high performance athletes such as the Seattle Seahawks, the U.S. 
-      Military, as well as industry workers such as truckers and construction workers across the globe, our mission at Fatigue Science is to make fatigue and sleep a manageable process, increasing productivity
-      and reducing fatigue-related accidents. <br><br>
-      As a member of the mobile team, I get to work firsthand with a variety of frameworks, languages, and technologies. Some of the ones I've interacted the most with in this role are: 
-      <ul>
-        <li> Typescript </li>
-        <li> AngularJS up to Angular 6</li>
-        <li> Ionic 1 up to Ionic 4 </li>
-        <li> HTML, CSS, SCSS, Sass </li>
-        <li> Cordova </li>
-        <li> Highcharts </li>
-      </ul>
-      <br>
-      You might notice that our mobile team doesn't follow the usual development strategies for mobile applications - instead, we're developing a hybrid app using the Ionic framework! 
-      If you're not familiar, Ionic is a framework that uses Angular (and, more recently, many other libraries and frameworks) to access the native components of a mobile device. Because we're a relatively
-      small and new startup, developing a hybrid application allows us to quickly deploy our code, as well as allowing us to easily manage our Android and iOS platforms simultaneously on a 
-      single code base. I'm really excited about the future of Fatigue Science, and I'm hopeful that we can make a real difference in the world!
-    </p>
-    </div>
-  </article>
-
-  <!-- projects -->
-  <article class="block" id="projects">
-    <h1> Projects </h1>
-    <div class="row">
-      <div class="projectColumn">
-        <div class="card">
-          <h5><u><a href="https://github.com/hailin-zhang/Essay-Analysis-App"> UBC Marks Manager </a></u></h5>
-          <img src="images/marksManager.png"> </img>
-          <p> A Java application that parses the UBC Student Service Center, displaying the user's grades in a user-friendly interface built with Swing. It allows users to predict grades for current courses,
-            and see how they will affect their current GPA. Design methods such as Singletons were used to minimize dependencies between classes, allowing for efficient communication between the UI and the backend.
-          </p>
+    <div class="lists-container hidden" id="lists-container"> 
+        <div class="write-name-field">
+            <span class="title">
+                <h1>Who Died?</h1>
+            </span>
+            <span class="title">
+                <h3>Enter a name to see if they died when Thanos snapped</h6>
+            </span>
+            <textarea 
+                name="textarea" 
+                rows="5" 
+                cols="25" 
+                minlength="1" 
+                maxlength="50"
+                placeholder="Write a name here"
+                id="name-form"
+            ></textarea>
+            <div class="write-buttons-container">
+                <button class="write-name-button" onclick="clearName()">
+                    <span>Clear Text</span>
+                </button>
+                <button class="write-name-button" onclick="clearList()">
+                    <span>Clear Lists</span>
+                </button>
+                <button class="write-name-button" onclick="submitName()">
+                    <span>Submit Name</span>
+                </button>
+            </div>
         </div>
-      </div>
-      <div class="projectColumn">
-        <div class="card">
-          <h5><u><a href="https://github.com/Wonton304/ResumeGenerator"> Job Search Website </a></u></h5>
-           <a href="http://www.ugrad.cs.ubc.ca/~g6b1b/dist/ResumeGenerator/index.php"><img src="images/304ER.png"></img></a>
-          <p> A website made in Angular and PHP by a team of 4 students. Hosted on an Oracle server, it is a representation of a job board, with Employers and Applicants making postings and applying for postings respectively.
-            Strictly following the entity-relationship guidelines we described for our database, our website has features such as generating a resume for applicants with skills matching the needs of any specific
-            job. Click on the image to view the website!
-          </p>
+        <div class="alive-list" id="alive-list">
+            <span class="alive-title">
+                <h1>Alive</h1>
+            </span>
         </div>
-      </div>
-      <div class="projectColumn">
-        <div class="card">
-          <h5><u><a href="https://github.com/hailin-zhang/Essay-Analysis-App"> Essay Analyzer </a></u></h5>
-          <img src="images/essayAnalyzer.png"></img>
-          <p> A Java program that parses any inputted text, and uses the MIT JWI to determine synonyms for words that have been used too often. It does this by using quicksort to sort the text alphabetically,
-            and then determines if a word is a repeat if the next index is identical. There are much more optimal ways to approach this problem, such as using memoization/hashing, but it was a good exercise
-            in learning sorting algorithms, particularly because it helped me prepare for my algorithms course at UBC!
-          </p>
+        <div class="dead-list" id="dead-list">
+            <span class="dead-title">
+                <h1>Dead</h1>
+            </span>
         </div>
-      </div>
     </div>
-  </article>
-
-  <!-- hackathons -->
-  <div class="lumohacks">
-    <article class="block" id="hackathons">
-      <h1> Hackathons </h1>
-      <div class="lumohacksText">
-        <a href="https://github.com/jameskanCa/Lumohacks2018">
-          <img src="https://media-fastly.hackerearth.com/media/hackathon/lumohacks-2017-mental-health-hackathon/images/04ec4e3097-lumohacks_logo_dark_bg.png" class = "lumoLogo"> </img>
-          <h4><u> Placement: Top 15 Teams </u></h4>
-          </a>
-         <p>
-          Lumohacks is a 24-hour Health-based hackathon that I attended over at SFU this year. With 3 of my friends, we created Project Shift:  A cross-platform service which enables patients suffering from substance 
-          addiction/abuse to prevent triggers which cause their condition, alerting help if necessary. A smart watch application will respond to physiological triggers (i.e. heart rate, respiration, etc.), and if a 
-          period of heightened stimulus is detected, signalling a trigger event, will vibrate for 5 seconds to ground the patient's thought stream and distract them. Then, it will open the mobile application, upon 
-          which the patient is required to take a photo of the trigger event and/or what they are doing, which will be uploaded to a cloud server that is linked to our web application. Monitored by volunteers and/or workers 
-          and family members, the photos will be validated manually, upon which an appropriate response is made: if approved, the trigger event will be marked as completed; otherwise, the patients' (previously inputted) contacts 
-          are notified (i.e. family, close friends, coworkers, etc.), prompting them for a call or a text, escalating to a call to emergency services if there is no response. After the campaign is over, we plan on adding machine 
-          learning components to our project, reducing the workload on manual labour by automatically detecting and verifying uploaded photos. Our <u><a href="https://docs.google.com/presentation/d/1ajwaYuySkz--sSPyGln5PEpAE_pHvhuGsR_tTUTfHvk/edit?usp=sharing">
-          hard work </a></u> earned us a top 15 placement!
-        </p>
-      </div>
-    </article>
-  </div>
-
-  <!-- about -->
-  <div class="about">
-    <article class="block" id="about">
-      <div class="aboutBlockLeft">
-         <h1> About Me </h1> <br>
-          <p> I'm a third year Computer Science student minoring in Biology at the University of British Columbia. I'm passionate about technology and the creative freedom it allows me to have in solving
-            problems and creating things that somebody out there will enjoy. My goal in life is to try my best and see where that takes me. I'm currently looking for a co-op opportunity for Summer 2019 and onwards.
-            Please don't hesitate to <a href="#contact"><u> contact me! </u></a>
-          </p>
-          <a href="https://www.linkedin.com/in/hai-lin-zhang/"><img src="images/linkedin.png"></img></a>
-          <a href="https://github.com/hailin-zhang"><img src="images/github.png"></img></a>
-          <h5> Email: <a href="mailto:hzhan339@hotmail.com"><u>  hzhan339@hotmail.com </u></a></h5>
-      </div>
-
-      <div class="aboutBlockRight">
-        <p> Apart from Computer Science, I'm also a big fan of Classical Guitar! I've been playing for most of my life, and it's an instrument thats very challenging but rewarding. I'm also an avid martial artist,
-          holding a 1st degree black belt from the World Tae Kwon Do Federation!
-        </p>
-      </div>
-    </article>
-  </div>
+    
+</body>
 </html>
-
