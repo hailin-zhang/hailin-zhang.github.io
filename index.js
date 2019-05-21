@@ -249,10 +249,8 @@ async function loadLists() {
     const dead_list = document.getElementById('dead-list');
     const alive_ul = document.createElement('ul');
     const dead_ul = document.createElement('ul');
-    const alive_length = aliveList.length;
-    const dead_length = deadList.length;
-    formatList(alive_list, alive_ul, alive_length, true);
-    formatList(dead_list, dead_ul, dead_length);
+    formatList(alive_list, alive_ul, true);
+    formatList(dead_list, dead_ul);
     alive_ul.classList.add('list-ul');
     dead_ul.classList.add('list-ul');
     alive_ul.id = 'alive-list-ul';
@@ -274,14 +272,16 @@ async function loadLists() {
     console.log(deadList);
 }
 
-function formatList(document_list, ul, length, isAliveList = false) {
+function formatList(document_list, ul, isAliveList = false) {
     let li;
-    for (let i = 0; i < length; i++) {
-        li = document.createElement('li');
-        li.innerHTML = isAliveList ? aliveList[i].name : deadList[i].name;
-        li.className = 'list-li';
-        ul.appendChild(li);                          
-    }
+    const currentList = isAliveList ? aliveList : deadList;
+    currentList.map((listObj) => {
+            li = document.createElement('li');
+            li.innerHTML = listObj.name;
+            li.className = 'list-li';
+            ul.appendChild(li);
+       }
+    );
     document_list.appendChild(ul);
 }
 
