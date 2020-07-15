@@ -27,12 +27,14 @@
 }
 
 .content-block {
+    display: flex;
     width: 100vw;
     height: 100vh;
 }
 
 .one {
     background: url("images/space.jpg") center center no-repeat local;
+    position: relative;
 }
 
 .two {
@@ -55,14 +57,27 @@
 }
 
 .death-star-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    margin: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) !important;
+}
+
+.millenium-falcon-container {
+    position: absolute;
+    margin: auto;
+    left: 39%;
+    top: 62%;
+    transform: translate(-61%, -38%) scaleX(-1) rotate(79deg) !important;
 }
 
 .death-star {
     width: 10vw;
     height: 10vw;
+}
+
+.millenium-falcon {
+    width: 6vw;
+    height: 6vw;
 }
