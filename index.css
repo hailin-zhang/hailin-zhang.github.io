@@ -63,6 +63,12 @@
     transform: translate(-50%, -50%) !important;
 }
 
+.death-star {
+    width: 10vw;
+    height: 10vw;
+    filter: blur(0.01em) brightness(0.79);
+}
+
 .millenium-falcon-container {
     position: absolute;
     margin: auto;
@@ -71,43 +77,50 @@
     transform: translate(-61%, -38%) scaleX(-1) rotate(79deg) !important;
 }
 
+.millenium-falcon {
+    width: 6vw;
+    height: 6vw;
+    filter: blur(0.025em) brightness(0.66);
+}
+
 .left-tie-container {
     position: absolute;
     margin: auto;
-    left: 39%;
-    top: 62%;
-    transform: translate(-61%, -38%) scaleX(-1) rotate(79deg) !important;
+    left: 22%;
+    top: 32%;
+    transform: translate(-78%, -68%) scaleX(-1) rotate(3deg) !important;
+}
+
+.left-tie {
+    width: 20vw;
+    height: 20vw;
+    filter: blur(0.04em) brightness(0.69);
 }
 
 .right-tie-container {
     position: absolute;
     margin: auto;
-    left: 39%;
-    top: 62%;
-    transform: translate(-61%, -38%) scaleX(-1) rotate(79deg) !important;
-}
-
-
-.death-star {
-    width: 10vw;
-    height: 10vw;
-    filter: blur(0.01em) brightness(0.79);
-}
-
-.millenium-falcon {
-    width: 6vw;
-    height: 6vw;
-    filter: blur(0.025em) brightness(0.82);
-}
-
-.left-tie {
-    width: 10vw;
-    height: 10vw;
-    filter: blur(0.01em) brightness(0.79);
+    left: 75%;
+    top: 68%;
+    transform: translate(-25%, -42%) rotate(-6deg) !important;
 }
 
 .right-tie {
-    width: 10vw;
-    height: 10vw;
-    filter: blur(0.01em) brightness(0.79);
+    width: 28vw;
+    height: 28vw;
+    filter: blur(0.02em) brightness(0.82);
+}
+
+.x-wing-container {
+    position: absolute;
+    margin: auto;
+    left: 58%;
+    top: 38%;
+    transform: translate(-42%, -62%) rotate(-3deg) !important;
+}
+
+.x-wing {
+    width: 4vw;
+    height: 4vw;
+    filter: blur(0.035em) brightness(0.52);
 }

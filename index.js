@@ -13,10 +13,14 @@ function awaitDOMLoad(callback){
 }
 
 const loadStarWarsScene = () => {
-    let sceneGen = document.getElementById('death-star');
-    new Parallax(sceneGen);
-    sceneGen = document.getElementById('millenium-falcon');
-    new Parallax(sceneGen);
+    const scenes = [
+        document.getElementById('death-star'),
+        document.getElementById('millenium-falcon'),
+        document.getElementById('left-tie'),
+        document.getElementById('right-tie'),
+        document.getElementById('x-wing'),
+    ];
+    scenes.map((scene) => new Parallax(scene));
 }
 
 awaitDOMLoad(() => {
