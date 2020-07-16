@@ -1,3 +1,7 @@
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function awaitDOMLoad(callback){
     if (document.readyState!='loading') {
         callback();
@@ -35,7 +39,34 @@ const loadStarWarsScene = () => {
     scenes.map((scene) => new Parallax(scene));
 }
 
-awaitDOMLoad(() => {
+const loadText = (tag, str, showBar = false) => {
+    var tagElem = document.getElementById(tag);
+    tagElem.innerHTML = '';
+    var n = 0;
+    var typeTimer = setInterval(() => {
+        n = n + 1;
+        tagElem.innerHTML = str.slice(0, n);
+        if (n === str.length) {
+            clearInterval(typeTimer);
+            tagElem.innerHTML = str;
+            n = 0;
+            setInterval(() => {
+                if (n === 0) {
+                    tagElem.innerHTML = str + `${showBar ? '|' : ''}`;
+                    n = 1;
+                } else {
+                    tagElem.innerHTML = str;
+                    n = 0;
+                };
+            }, 600);
+        };
+    }, 80)
+}
+
+awaitDOMLoad(async () => {
     loadSmoothScroll();
     loadStarWarsScene();
+    loadText('title', 'Welcome to my website!');
+    await sleep(200);
+    loadText('subtitle', 'My name is Hai Lin');
 });
