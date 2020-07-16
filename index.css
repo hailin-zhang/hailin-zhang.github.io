@@ -2,6 +2,10 @@
     margin: 0; padding: 0;
 }
 
+a {
+    pointer-events: auto !important;
+}
+
 .scroll-container {
     width: 100vh;
     height: 100vw;
@@ -15,7 +19,7 @@
 }
 
 ::-webkit-scrollbar {
-    display:none;
+    display: none;
 }
 
 .content-container {
@@ -64,9 +68,13 @@
 }
 
 .death-star {
-    width: 10vw;
-    height: 10vw;
+    width: 10.5vw;
+    height: 10.5vw;
     filter: blur(0.01em) brightness(0.79);
+}
+
+.death-star:hover {
+    filter: drop-shadow(0 0 28px rgba(188, 0, 0, 0.9));
 }
 
 .millenium-falcon-container {
@@ -78,9 +86,13 @@
 }
 
 .millenium-falcon {
-    width: 6vw;
-    height: 6vw;
+    width: 7.5vw;
+    height: 7.5vw;
     filter: blur(0.025em) brightness(0.66);
+}
+
+.millenium-falcon:hover {
+    filter: drop-shadow(0 0 28px rgba(255, 255, 0, 0.9));
 }
 
 .left-tie-container {
@@ -97,6 +109,10 @@
     filter: blur(0.04em) brightness(0.69);
 }
 
+.left-tie:hover {
+    filter: drop-shadow(0 0 42px rgba(0, 200, 0, 0.9));
+}
+
 .right-tie-container {
     position: absolute;
     margin: auto;
@@ -111,16 +127,24 @@
     filter: blur(0.02em) brightness(0.82);
 }
 
+.right-tie:hover {
+    filter: drop-shadow(0 0 42px rgba(141, 0, 231, 0.9));
+}
+
 .x-wing-container {
     position: absolute;
     margin: auto;
-    left: 58%;
+    left: 68%;
     top: 38%;
-    transform: translate(-42%, -62%) rotate(-3deg) !important;
+    transform: translate(-32%, -62%) rotate(-3deg) !important;
 }
 
 .x-wing {
-    width: 4vw;
-    height: 4vw;
-    filter: blur(0.035em) brightness(0.52);
+    width: 16vw;
+    height: 16vw;
+    filter: blur(0.035em) brightness(0.72);
+}
+
+.x-wing:hover {
+    filter: drop-shadow(0 0 28px rgba(0, 0, 255, 1.4)) brightness(1);
 }
