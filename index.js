@@ -60,13 +60,13 @@ const loadText = (tag, str, showBar = false) => {
                 };
             }, 600);
         };
-    }, 80)
+    }, 70)
 }
 
 awaitDOMLoad(async () => {
     loadSmoothScroll();
     loadStarWarsScene();
     loadText('title', 'Welcome to my website!');
-    await sleep(200);
-    loadText('subtitle', 'My name is Hai Lin');
+    await sleep(2000);
+    loadText('subtitle', 'My name is Hai Lin', true);
 });
