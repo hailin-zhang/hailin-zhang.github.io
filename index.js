@@ -2,8 +2,8 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function awaitDOMLoad(callback){
-    if (document.readyState!='loading') {
+function awaitDOMLoad(callback) {
+    if (document.readyState != 'loading') {
         callback();
     } else if (document.addEventListener) {
         document.addEventListener('DOMContentLoaded', callback);
@@ -20,7 +20,7 @@ const loadSmoothScroll = () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-    
+
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth',
             });
@@ -39,11 +39,26 @@ const loadStarWarsScene = () => {
     scenes.map((scene) => new Parallax(scene));
 }
 
-const loadText = (tag, str, showBar = false) => {
-    var tagElem = document.getElementById(tag);
-    tagElem.innerHTML = '';
-    var n = 0;
-    var typeTimer = setInterval(() => {
+const renderAnchorText = async (str) => {
+    await clearAnchorText();
+    loadText('anchor-text', str);
+}
+
+const clearAnchorText = async () => {
+    const anchorNode = document.getElementById('anchor-text');
+    if (!!anchorNode) {
+        const anchorParentNode = anchorNode.parentElement;
+        const defaultAnchorHTML = `<span class="anchor-title" id="anchor-text"></span>`;
+        anchorNode.parentElement.removeChild(anchorNode);
+        anchorParentNode.insertAdjacentHTML('beforeend', defaultAnchorHTML);
+    }
+}
+
+const loadText = async (tag, str, showBar = false) => {
+    const tagElem = document.getElementById(tag);
+    tagElem.innerHTML = ' ';
+    let n = 0;
+    const typeTimer = setInterval(() => {
         n = n + 1;
         tagElem.innerHTML = str.slice(0, n);
         if (n === str.length) {
@@ -60,7 +75,7 @@ const loadText = (tag, str, showBar = false) => {
                 };
             }, 600);
         };
-    }, 70)
+    }, 70);
 }
 
 awaitDOMLoad(async () => {

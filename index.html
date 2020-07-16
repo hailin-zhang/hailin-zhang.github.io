@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Hai Lin Zhang personal website</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
     <script type="text/javascript" src="index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
 </head>
+
 <body>
     <div class="scroll-container">
         <div class="content-container">
@@ -19,20 +22,26 @@
                 <div class="description-container">
                     <span class="description-title" id="title"></span>
                     <span class="description-subtitle" id="subtitle"></span>
+                    <span class="anchor-title" id="anchor-text"></span>
                 </div>
-                <a href="#aboutMe" class="death-star-container" id="death-star">
+                <a href="#aboutMe" class="death-star-container" id="death-star"
+                    onmouseover="renderAnchorText('About me')" onmouseout="clearAnchorText()">
                     <img src="images/death-star.png" class="death-star" data-depth="0.1">
                 </a>
-                <a href="#projects" class="millenium-falcon-container" id="millenium-falcon">
+                <a href="#projects" class="millenium-falcon-container" id="millenium-falcon"
+                    onmouseover="renderAnchorText('Projects')" onmouseout="clearAnchorText()">
                     <img src="images/millenium-falcon.png" class="millenium-falcon" data-depth="0.6">
                 </a>
-                <a href="#workExperience" class="left-tie-container" id="left-tie">
+                <a href="#hobbies" class="left-tie-container" id="left-tie"
+                    onmouseover="renderAnchorText('Hobbies')" onmouseout="clearAnchorText()">
                     <img src="images/tie-fighter.png" class="left-tie" data-depth="0.7">
                 </a>
-                <a href="#hobbies" class="right-tie-container" id="right-tie">
+                <a href="#socialMedia" class="right-tie-container" id="right-tie" onmouseover="renderAnchorText('Social Media')"
+                    onmouseout="clearAnchorText()">
                     <img src="images/tie-fighter.png" class="right-tie" data-depth="0.8">
                 </a>
-                <a href="#socialMedia" class="x-wing-container" id="x-wing">
+                <a href="#workExperience" class="x-wing-container" id="x-wing" onmouseover="renderAnchorText('Work Experience')"
+                    onmouseout="clearAnchorText()">
                     <img src="images/x-wing.png" class="x-wing" data-depth="0.4">
                 </a>
             </div>
@@ -44,4 +53,5 @@
         </div>
     </div>
 </body>
+
 </html>
