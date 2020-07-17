@@ -15,9 +15,12 @@
 </head>
 
 <body>
-    <div class="scroll-container">
+    <div class="scroll-container" onscroll="updateScrollProgressBar()">
         <div class="content-container">
-            <div class="content-block one">
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="content-block home" id="home">
                 <span class="gradient-filter"></span>
                 <div class="description-container">
                     <span class="description-title" id="title"></span>
@@ -25,31 +28,85 @@
                     <span class="anchor-title" id="anchor-text"></span>
                 </div>
                 <a href="#aboutMe" class="death-star-container" id="death-star"
-                    onmouseover="renderAnchorText('About me')" onmouseout="clearAnchorText()">
+                    onmouseover="renderAnchorText('About Me')" onmouseout="clearAnchorText()">
                     <img src="images/death-star.png" class="death-star" data-depth="0.1">
                 </a>
                 <a href="#projects" class="millenium-falcon-container" id="millenium-falcon"
                     onmouseover="renderAnchorText('Projects')" onmouseout="clearAnchorText()">
                     <img src="images/millenium-falcon.png" class="millenium-falcon" data-depth="0.6">
                 </a>
-                <a href="#hobbies" class="left-tie-container" id="left-tie"
-                    onmouseover="renderAnchorText('Hobbies')" onmouseout="clearAnchorText()">
-                    <img src="images/tie-fighter.png" class="left-tie" data-depth="0.7">
-                </a>
-                <a href="#socialMedia" class="right-tie-container" id="right-tie" onmouseover="renderAnchorText('Social Media')"
-                    onmouseout="clearAnchorText()">
-                    <img src="images/tie-fighter.png" class="right-tie" data-depth="0.8">
-                </a>
-                <a href="#workExperience" class="x-wing-container" id="x-wing" onmouseover="renderAnchorText('Work Experience')"
-                    onmouseout="clearAnchorText()">
+                <a href="#workExperience" class="x-wing-container" id="x-wing"
+                    onmouseover="renderAnchorText('Work Experience')" onmouseout="clearAnchorText()">
                     <img src="images/x-wing.png" class="x-wing" data-depth="0.4">
                 </a>
+                <a href="#hobbies" class="left-tie-container" id="left-tie" onmouseover="renderAnchorText('Hobbies')"
+                    onmouseout="clearAnchorText()">
+                    <img src="images/tie-fighter.png" class="left-tie" data-depth="0.7">
+                </a>
+                <a href="#socialMedia" class="right-tie-container" id="right-tie"
+                    onmouseover="renderAnchorText('Social Media')" onmouseout="clearAnchorText()">
+                    <img src="images/tie-fighter.png" class="right-tie" data-depth="0.8">
+                </a>
             </div>
-            <div class="content-block two" id="aboutMe"></div>
-            <div class="content-block three" id="projects"></div>
-            <div class="content-block four" id="workExperience"></div>
-            <div class="content-block one" id="hobbies"></div>
-            <div class="content-block two" id="socialMedia"></div>
+            <div class="content-block about" id="aboutMe">
+                <div class="nav-container">
+                    <a href="#home" class="nav-home">
+                        <img src="images/home.png" class="arrow home-arrow">
+                    </a>
+                    <a href="#projects" class="nav-fwd">
+                        <img src="images/arrow.png" class="arrow right-arrow">
+                    </a>
+                </div>
+            </div>
+            <div class="content-block projects" id="projects">
+                <div class="nav-container">
+                    <a href="#aboutMe" class="nav-back">
+                        <img src="images/arrow.png" class="arrow left-arrow">
+                    </a>
+                    <a href="#home" class="nav-home">
+                        <img src="images/home.png" class="arrow home-arrow">
+                    </a>
+                    <a href="#workExperience" class="nav-fwd">
+                        <img src="images/arrow.png" class="arrow right-arrow">
+                    </a>
+                </div>
+            </div>
+            <div class="content-block work" id="workExperience">
+                <div class="nav-container">
+                    <a href="#projects" class="nav-back">
+                        <img src="images/arrow.png" class="arrow left-arrow">
+                    </a>
+                    <a href="#home" class="nav-home">
+                        <img src="images/home.png" class="arrow home-arrow">
+                    </a>
+                    <a href="#hobbies" class="nav-fwd">
+                        <img src="images/arrow.png" class="arrow right-arrow">
+                    </a>
+                </div>
+            </div>
+            <div class="content-block hobbies" id="hobbies">
+                <div class="nav-container">
+                    <a href="#workExperience" class="nav-back">
+                        <img src="images/arrow.png" class="arrow left-arrow">
+                    </a>
+                    <a href="#home" class="nav-home">
+                        <img src="images/home.png" class="arrow home-arrow">
+                    </a>
+                    <a href="#socialMedia" class="nav-fwd">
+                        <img src="images/arrow.png" class="arrow right-arrow">
+                    </a>
+                </div>
+            </div>
+            <div class="content-block social" id="socialMedia">
+                <div class="nav-container">
+                    <a href="#hobbies" class="nav-back">
+                        <img src="images/arrow.png" class="arrow left-arrow">
+                    </a>
+                    <a href="#home" class="nav-home">
+                        <img src="images/home.png" class="arrow home-arrow">
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </body>

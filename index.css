@@ -4,6 +4,9 @@
 
 a {
     pointer-events: auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .scroll-container {
@@ -31,32 +34,68 @@ a {
 }
 
 .content-block {
+    position: relative;
     display: flex;
     width: 100vw;
     height: 100vh;
 }
 
-.one {
+.progress-bar-container {
+    position: absolute;
+    width: 600vw;
+    height: 5px;
+    z-index: 10;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(45deg, #ffffff, #FFFDD0, #FFFFF0);
+    background-size: 600% 100%;
+    animation: gradient 14s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
+
+.home {
     background: url("images/space.jpg") center center no-repeat local;
-    position: relative;
 }
 
-.two {
+.about {
     background: url("images/aboutME.jpg") center center no-repeat local;
 }
 
-.three {
+.projects {
     background: url("images/aboutME.jpg") center center no-repeat local;
 }
 
-.four {
+.work {
     background: url("images/aboutME.jpg") center center no-repeat local;
+}
+
+.hobbies {
+    background: url("images/aboutME.jpg") center center no-repeat local;
+}
+
+.social {
+    background: url("images/space.jpg") center center no-repeat local;
 }
 
 .gradient-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(111, 0, 0, 0.25), rgba(4, 2, 0, 0.3), rgba(24, 0, 69, 0.2));
+    background: radial-gradient(circle at center, rgba(111, 0, 0, 0.3), rgba(11, 11, 0, 0.2), rgba(24, 0, 69, 0.25));
 }
 
 .death-star-container {
@@ -174,4 +213,43 @@ a {
     font-size: 56px;
     font-weight: 500;
     font-style: italic;
+}
+
+.nav-container {
+    position: absolute;
+    margin: auto;
+    right: 4%;
+    bottom: 4%;
+    display: flex;
+    padding: 0 5px 0 5px;
+    border-radius: 4px;
+    background: rgba(106, 104, 104, 0.7);
+    opacity: 0.5;
+}
+
+.nav-container:hover {
+    opacity: 1;
+}
+
+.arrow {
+    height: 2vw;
+    width: 2vw;
+    filter: brightness(0) invert(0.8);
+}
+
+.arrow:hover {
+    filter: brightness(0) invert(1);
+}
+
+.left-arrow {
+    transform: rotate(-90deg);
+}
+
+.right-arrow {
+    transform: rotate(90deg);
+}   
+
+.home-arrow {
+    height: 5vw;
+    width: 7vw;
 }

@@ -41,7 +41,7 @@ const loadStarWarsScene = () => {
 
 const renderAnchorText = async (str) => {
     await clearAnchorText();
-    loadText('anchor-text', str);
+    loadText('anchor-text', str, true);
 }
 
 const clearAnchorText = async () => {
@@ -54,7 +54,7 @@ const clearAnchorText = async () => {
     }
 }
 
-const loadText = async (tag, str, showBar = false) => {
+const loadText = async (tag, str, showBar = false, typeSpeed = 70) => {
     const tagElem = document.getElementById(tag);
     tagElem.innerHTML = ' ';
     let n = 0;
@@ -75,13 +75,23 @@ const loadText = async (tag, str, showBar = false) => {
                 };
             }, 600);
         };
-    }, 70);
+    }, typeSpeed);
+}
+
+const updateScrollProgressBar = () => {
+    const scrollContainer = document.querySelector(".scroll-container");
+    const scrollHeightTotal = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+    const scrollHeightCurrent = scrollContainer.scrollTop;
+    const progressBarNode = document.querySelector(".progress-bar");
+    const progressIconNode = document.querySelector(".progress-icon");
+    const scrollPercentage = (scrollHeightCurrent / scrollHeightTotal) * 100;
+    progressBarNode.style.width = scrollPercentage + "%";
 }
 
 awaitDOMLoad(async () => {
     loadSmoothScroll();
     loadStarWarsScene();
-    loadText('title', 'Welcome to my website!');
-    await sleep(2000);
-    loadText('subtitle', 'My name is Hai Lin', true);
+    loadText('title', 'Welcome to my website!', false, 45);
+    await sleep(1200);
+    loadText('subtitle', 'My name is Hai Lin', false, 45);
 });
