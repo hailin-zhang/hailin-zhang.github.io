@@ -97,29 +97,85 @@ const updateNav = () => {
     const leftAnchor = document.querySelector('.nav-back');
     const rightAnchor = document.querySelector('.nav-fwd');
     const widthOfContentPage = document.getElementById('home').offsetWidth;
-    if ((offsetRight < 6 * widthOfContentPage) && (offsetRight > 5 * widthOfContentPage)) {
+    const offsetWidth = widthOfContentPage - widthOfContentPage / 20;
+    // Home
+    if ((offsetRight < 6 * offsetWidth) && (offsetRight > 5 * widthOfContentPage)) {
         navContainer.style.display = 'none';
-    } else if ((offsetRight < 5 * widthOfContentPage) && (offsetRight > 4 * widthOfContentPage)) {
+        hideIntroCrawl();
+    // Intro
+    } else if ((offsetRight < 5 * widthOfContentPage) && (offsetRight > 4 * offsetWidth)) {
         navContainer.style.display = 'flex';
         leftAnchor.href = '#home';
         rightAnchor.href = '#projects';
-    } else if ((offsetRight < 4 * widthOfContentPage) && (offsetRight > 3 * widthOfContentPage)) {
+        showIntroCrawl();
+    // Projects
+    } else if ((offsetRight < 4 * offsetWidth) && (offsetRight > 3 * offsetWidth)) {
         navContainer.style.display = 'flex';
-        leftAnchor.href = '#aboutMe';
+        leftAnchor.href = '#intro';
         rightAnchor.href = '#workExperience';
-    } else if ((offsetRight < 3 * widthOfContentPage) && (offsetRight > 2 * widthOfContentPage)) {
+        hideIntroCrawl();
+    // Work Experience
+    } else if ((offsetRight < 3 * offsetWidth) && (offsetRight > 2 * offsetWidth)) {
         navContainer.style.display = 'flex';
         leftAnchor.href = '#projects';
         rightAnchor.href = '#hobbies';
-    } else if ((offsetRight < 2 * widthOfContentPage) && (offsetRight > 1 * widthOfContentPage)) {
+        hideIntroCrawl();
+    // Hobbies
+    } else if ((offsetRight < 2 * offsetWidth) && (offsetRight > 1 * offsetWidth)) {
         navContainer.style.display = 'flex';
         leftAnchor.href = '#workExperience';
         rightAnchor.href = '#socialMedia';
+        hideIntroCrawl();
+    // Social Media
     } else {
         navContainer.style.display = 'flex';
         leftAnchor.href = '#hobbies';
         rightAnchor.href = '#home';
+        hideIntroCrawl();
     }
+}
+
+const hideIntroCrawl = () => {
+    const introText = document.querySelector('.intro-text');
+    introText.style.display = 'none';
+    const starWarsLogo = document.querySelector('.star-wars-logo');
+    starWarsLogo.style.display = 'none';
+    const introAnimation = document.querySelector('.crawl-animation');
+    introAnimation.style.animation = 'none';
+    const introStarWarsPage = document.querySelector('.star-wars-container');
+    introStarWarsPage.style.display = 'none';
+    const bgmElem = document.getElementById('audio');
+    bgmElem.pause();
+    bgmElem.load();
+}
+
+const showIntroCrawl = async () => {
+    const introText = document.querySelector('.intro-text');
+    introText.style.display = 'block';
+    const starWarsLogo = document.querySelector('.star-wars-logo');
+    starWarsLogo.style.display = 'block';
+    const introAnimation = document.querySelector('.crawl-animation');
+    introAnimation.style.animation = '';
+    const introStarWarsPage = document.querySelector('.star-wars-container');
+    introStarWarsPage.style.display = 'flex';
+    const bgmElem = document.getElementById('audio');
+    bgmElem.play();
+}
+
+const replayIntro = async () => {
+    hideIntroCrawl();
+    await sleep(1000);
+    showIntroCrawl();
+}
+
+const toggleMute = () => {
+    const bgmElem = document.getElementById('audio');
+    const isMuted = bgmElem.muted;
+    bgmElem.muted = !isMuted;
+    const unmutedImg = document.getElementById('intro-control-unmute');
+    unmutedImg.style.display = `${isMuted ? 'block' : 'none'}`;
+    const mutedImg = document.getElementById('intro-control-mute');
+    mutedImg.style.display = `${isMuted ? 'none' : 'block'}`;
 }
 
 awaitDOMLoad(async () => {

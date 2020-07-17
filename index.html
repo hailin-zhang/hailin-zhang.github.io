@@ -9,6 +9,8 @@
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
     <script type="text/javascript" src="index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
@@ -38,8 +40,8 @@
                     <span class="description-subtitle" id="subtitle"></span>
                     <span class="anchor-title" id="anchor-text"></span>
                 </div>
-                <a href="#aboutMe" class="death-star-container" id="death-star"
-                    onmouseover="renderAnchorText('About Me')" onmouseout="clearAnchorText()">
+                <a href="#intro" class="death-star-container" id="death-star" onmouseover="renderAnchorText('Intro')"
+                    onmouseout="clearAnchorText()">
                     <img src="images/death-star.png" class="death-star" data-depth="0.1">
                 </a>
                 <a href="#projects" class="millenium-falcon-container" id="millenium-falcon"
@@ -59,7 +61,47 @@
                     <img src="images/tie-fighter.png" class="right-tie" data-depth="0.8">
                 </a>
             </div>
-            <div class="content-block about" id="aboutMe">
+            <div class="content-block intro-opening" id="intro">
+                <div class="intro-controls-container">
+                    <img src="images/replay.svg" class="control-btn" onclick="replayIntro()">
+                    <img src="images/unmute.svg" class="control-btn" id="intro-control-unmute" onclick="toggleMute()">
+                    <img src="images/mute.svg" class="control-btn hidden" id="intro-control-mute" onclick="toggleMute()">
+                </div>
+                <audio src="assets/star-wars-crawl.mp3" id="audio" loop>
+                    Your browser does not support the
+                    <code>audio</code> element.
+                </audio>
+                <div class="fade"></div>
+                <div class="twinkling"></div>
+                <div class="star star-right"></div>
+                <div class="star star-left"></div>
+                <div class="intro-text">
+                    A short time ago, in an office far,<br> far away....
+                </div>
+                <div class="star-wars-logo">
+                    <img src="images/star-wars-logo.svg">
+                </div>
+                <div class="star-wars-container">
+                    <div class="crawl-animation">
+                        <div class="title">
+                            <p>Episode IV</p>
+                            <h1>A New Job</h1>
+                        </div>
+
+                        <p>It is a period of civil war. Recruiter spaceships, striking from a hidden base, have won
+                            their
+                            first victory against the job-seeking Hai Lin.</p>
+
+                        <p>During the battle, Recruiter spies managed to steal secret plans to Hai Lin's ultimate
+                            weapon,
+                            the RESUME, an armored space station with enough power to destroy an entire planet.</p>
+
+                        <p>Pursued by Hai Lin's sinister agents, Princess Leia races home aboard her starship,
+                            custodian of the stolen plans that can save her company and restore freedom to the
+                            industry...
+                        </p>
+                    </div>
+                </div>
             </div>
             <div class="content-block projects" id="projects">
             </div>
