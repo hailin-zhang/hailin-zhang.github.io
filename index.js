@@ -83,12 +83,47 @@ const updateScrollProgressBar = () => {
     const scrollHeightTotal = scrollContainer.scrollHeight - scrollContainer.clientHeight;
     const scrollHeightCurrent = scrollContainer.scrollTop;
     const progressBarNode = document.querySelector(".progress-bar");
-    const progressIconNode = document.querySelector(".progress-icon");
     const scrollPercentage = (scrollHeightCurrent / scrollHeightTotal) * 100;
     progressBarNode.style.width = scrollPercentage + "%";
 }
 
+const updateNav = () => {
+    const scrollContainer = document.querySelector(".scroll-container");
+    const navContainer = document.querySelector(".nav-container");
+    const scrollHeightTotal = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+    const offsetRight = scrollHeightTotal - scrollContainer.scrollTop + 0.004 * scrollHeightTotal;
+    navContainer.style.right = `${offsetRight}px`;
+    // update buttons
+    const leftAnchor = document.querySelector('.nav-back');
+    const rightAnchor = document.querySelector('.nav-fwd');
+    const widthOfContentPage = document.getElementById('home').offsetWidth;
+    if ((offsetRight < 6 * widthOfContentPage) && (offsetRight > 5 * widthOfContentPage)) {
+        navContainer.style.display = 'none';
+    } else if ((offsetRight < 5 * widthOfContentPage) && (offsetRight > 4 * widthOfContentPage)) {
+        navContainer.style.display = 'flex';
+        leftAnchor.href = '#home';
+        rightAnchor.href = '#projects';
+    } else if ((offsetRight < 4 * widthOfContentPage) && (offsetRight > 3 * widthOfContentPage)) {
+        navContainer.style.display = 'flex';
+        leftAnchor.href = '#aboutMe';
+        rightAnchor.href = '#workExperience';
+    } else if ((offsetRight < 3 * widthOfContentPage) && (offsetRight > 2 * widthOfContentPage)) {
+        navContainer.style.display = 'flex';
+        leftAnchor.href = '#projects';
+        rightAnchor.href = '#hobbies';
+    } else if ((offsetRight < 2 * widthOfContentPage) && (offsetRight > 1 * widthOfContentPage)) {
+        navContainer.style.display = 'flex';
+        leftAnchor.href = '#workExperience';
+        rightAnchor.href = '#socialMedia';
+    } else {
+        navContainer.style.display = 'flex';
+        leftAnchor.href = '#hobbies';
+        rightAnchor.href = '#home';
+    }
+}
+
 awaitDOMLoad(async () => {
+    updateNav();
     loadSmoothScroll();
     loadStarWarsScene();
     loadText('title', 'Welcome to my website!', false, 45);

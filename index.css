@@ -216,15 +216,14 @@ a {
 }
 
 .nav-container {
-    position: absolute;
-    margin: auto;
-    right: 4%;
+    position: fixed;
     top: 4%;
     display: flex;
     padding: 0 7px 0 7px;
     border-radius: 4px;
     background: rgba(106, 104, 104, 0.7);
     opacity: 0.5;
+    z-index: 10;
 }
 
 .nav-container:hover {
