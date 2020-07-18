@@ -124,9 +124,9 @@ const updateNav = () => {
     } else if ((offsetRight < 2 * offsetWidth) && (offsetRight > 1 * offsetWidth)) {
         navContainer.style.display = 'flex';
         leftAnchor.href = '#workExperience';
-        rightAnchor.href = '#socialMedia';
+        rightAnchor.href = '#aboutMe';
         hideIntroCrawl();
-    // Social Media
+    // About Me
     } else {
         navContainer.style.display = 'flex';
         leftAnchor.href = '#hobbies';
