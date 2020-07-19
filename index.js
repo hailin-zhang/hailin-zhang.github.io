@@ -102,6 +102,7 @@ const updateNav = () => {
     if ((offsetRight < 6 * offsetWidth) && (offsetRight > 5 * widthOfContentPage)) {
         navContainer.style.display = 'none';
         hideIntroCrawl();
+        mute();
     // Intro
     } else if ((offsetRight < 5 * widthOfContentPage) && (offsetRight > 4 * offsetWidth)) {
         navContainer.style.display = 'flex';
@@ -114,24 +115,28 @@ const updateNav = () => {
         leftAnchor.href = '#intro';
         rightAnchor.href = '#workExperience';
         hideIntroCrawl();
+        mute();
     // Work Experience
     } else if ((offsetRight < 3 * offsetWidth) && (offsetRight > 2 * offsetWidth)) {
         navContainer.style.display = 'flex';
         leftAnchor.href = '#projects';
         rightAnchor.href = '#hobbies';
         hideIntroCrawl();
+        mute();
     // Hobbies
     } else if ((offsetRight < 2 * offsetWidth) && (offsetRight > 1 * offsetWidth)) {
         navContainer.style.display = 'flex';
         leftAnchor.href = '#workExperience';
         rightAnchor.href = '#aboutMe';
         hideIntroCrawl();
+        mute();
     // About Me
     } else {
         navContainer.style.display = 'flex';
         leftAnchor.href = '#hobbies';
         rightAnchor.href = '#home';
         hideIntroCrawl();
+        mute();
     }
 }
 
