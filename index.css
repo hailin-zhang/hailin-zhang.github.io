@@ -76,7 +76,7 @@ a {
 
 .intro-opening {
     background-color: black;
-    background-image: radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 40px), radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 30px), radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 40px), radial-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .1) 2px, transparent 30px);
+    background-image: radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 20px), radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 15px), radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 15px), radial-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .1) 2px, transparent 10px);
     background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
     background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
     overflow: hidden;
@@ -399,12 +399,11 @@ a {
 }
 
 .twinkling {
-    background: transparent url(images/twinkling.png) repeat top center;
+    background-image: radial-gradient(black, rgba(0, 0, 0, 1) 30px, transparent 34px), radial-gradient(black, rgba(0, 0, 0, 1) 26px, transparent 28px), radial-gradient(black, rgba(0, 0, 0, 1) 20px, transparent 22px), radial-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) 24px, transparent 28px);
+    background-repeat: repeat;
+    background-size: 420px 410px, 240px 200px, 290px 300px, 710px 770px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
     z-index: 1;
-    -moz-animation: move-twink-back 500s linear infinite;
-    -ms-animation: move-twink-back 500s linear infinite;
-    -o-animation: move-twink-back 500s linear infinite;
-    -webkit-animation: move-twink-back 500s linear infinite;
     animation: move-twink-back 500s linear infinite;
 }
 
@@ -456,6 +455,7 @@ a {
     position: absolute;
     opacity: 0.5;
     transform: rotate(-30deg);
+    z-index: 2;
 }
 
 .star-right {
