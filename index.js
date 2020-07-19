@@ -158,24 +158,33 @@ const showIntroCrawl = async () => {
     introAnimation.style.animation = '';
     const introStarWarsPage = document.querySelector('.star-wars-container');
     introStarWarsPage.style.display = 'flex';
-    const bgmElem = document.getElementById('audio');
-    bgmElem.play();
 }
 
 const replayIntro = async () => {
     hideIntroCrawl();
-    await sleep(1000);
+    await sleep(50);
     showIntroCrawl();
 }
 
-const toggleMute = () => {
+const unmute = () => {
     const bgmElem = document.getElementById('audio');
-    const isMuted = bgmElem.muted;
-    bgmElem.muted = !isMuted;
+    bgmElem.muted = false;
+    if (bgmElem.currentTime === 0) {
+        replayIntro();
+    }
     const unmutedImg = document.getElementById('intro-control-unmute');
-    unmutedImg.style.display = `${isMuted ? 'block' : 'none'}`;
+    unmutedImg.style.display = 'block';
     const mutedImg = document.getElementById('intro-control-mute');
-    mutedImg.style.display = `${isMuted ? 'none' : 'block'}`;
+    mutedImg.style.display = 'none';
+}
+
+const mute = () => {
+    const bgmElem = document.getElementById('audio');
+    bgmElem.muted = true;
+    const unmutedImg = document.getElementById('intro-control-unmute');
+    unmutedImg.style.display = 'none';
+    const mutedImg = document.getElementById('intro-control-mute');
+    mutedImg.style.display = 'block';
 }
 
 const loadRandomIntroStar = () => {

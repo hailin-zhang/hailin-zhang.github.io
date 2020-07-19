@@ -64,10 +64,10 @@
             <div class="content-block intro-opening" id="intro">
                 <div class="intro-controls-container">
                     <img src="images/replay.svg" class="control-btn" onclick="replayIntro()">
-                    <img src="images/unmute.svg" class="control-btn" id="intro-control-unmute" onclick="toggleMute()">
-                    <img src="images/mute.svg" class="control-btn hidden" id="intro-control-mute" onclick="toggleMute()">
+                    <img src="images/unmute.svg" class="control-btn hidden" id="intro-control-unmute" onclick="mute()">
+                    <img src="images/mute.svg" class="control-btn " id="intro-control-mute" onclick="unmute()">
                 </div>
-                <audio src="assets/star-wars-crawl.mp3" id="audio" loop>
+                <audio src="assets/star-wars-crawl.mp3" id="audio" autoplay muted loop>
                     Your browser does not support the
                     <code>audio</code> element.
                 </audio>
