@@ -178,6 +178,25 @@ const toggleMute = () => {
     mutedImg.style.display = `${isMuted ? 'none' : 'block'}`;
 }
 
+const loadRandomIntroStar = () => {
+    const renderStar = async (leftNumPercent, topNumPercent, zDeg) => {
+        const starContainerElem = document.getElementById('star-container');
+        const starContainerCopy = starContainerElem.cloneNode(true);
+        const starElem = document.getElementById('star');
+        const starCopy = starElem.cloneNode(true);
+        starContainerCopy.style.transform = `rotateZ(${zDeg}deg)`;
+        starCopy.style.left = `${leftNumPercent}%`;
+        starCopy.style.top = `${topNumPercent}%`;
+        starElem.parentNode.replaceChild(starCopy, starElem);
+        starContainerElem.parentNode.replaceChild(starContainerCopy, starContainerElem);
+        const randomLeft = Math.floor(Math.random() * 15) + 1;
+        const randomTop = Math.floor(Math.random() * 20) + 1;
+        const randomZDeg = Math.floor(Math.random() * 55) + 1;
+        setTimeout(() => renderStar(randomLeft, randomTop, randomZDeg), 7000);
+    }
+    renderStar(0, 2, 35);
+}
+
 awaitDOMLoad(async () => {
     updateNav();
     loadSmoothScroll();
@@ -185,4 +204,5 @@ awaitDOMLoad(async () => {
     loadText('title', 'Welcome to my website!', false, 45);
     await sleep(1200);
     loadText('subtitle', 'My name is Hai Lin', false, 45);
+    loadRandomIntroStar();
 });
