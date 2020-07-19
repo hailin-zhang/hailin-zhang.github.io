@@ -67,21 +67,22 @@ a {
 
 .home {
     background: url("images/space.jpg") center center no-repeat local;
-}
-
-.about {
-    background: url("images/aboutME.jpg") center center no-repeat local;
     background-size: cover;
+    overflow-x: hidden;
 }
 
 .intro-opening {
-    
-  background:#000 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat top center;
+    background:#000 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat top center;
     overflow: hidden;
 }
 
 .projects {
-    background: url("images/aboutME.jpg") center center no-repeat local;
+    background: url("images/baby-yoda.png");
+    background-size: 22%;
+    background-repeat: round;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .work {
@@ -93,7 +94,8 @@ a {
 }
 
 .about {
-    background: url("images/space.jpg") center center no-repeat local;
+    background: url("images/aboutME.jpg") center center no-repeat local;
+    background-size: cover;
 }
 
 .gradient-filter {
@@ -481,35 +483,45 @@ a {
 
 @keyframes tail {
     0% {
-      width: 0;
+        width: 0;
     }
-    
+
     30% {
-      width: 100px;
+        width: 100px;
     }
-    
+
     100% {
-      width: 0;
+        width: 0;
     }
-  }
+}
   
-  @keyframes shining {
+@keyframes shining {
     0% {
-      width: 0;
+        width: 0;
     }
     50% {
-      width: 30px;
+        width: 30px;
     }
     100% {
-      width: 0;
+        width: 0;
     }
-  }
+}
   
-  @keyframes shooting {
+@keyframes shooting {
     0% {
-      transform: translateX(0);
+        transform: translateX(0);
     }
     100% {
-      transform: translateX(320px);
+        transform: translateX(320px);
     }
-  }
+}
+
+.projects-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 90%;
+    background-color: rgba(255, 255, 255, .15);  
+    backdrop-filter: blur(5px);
+}
