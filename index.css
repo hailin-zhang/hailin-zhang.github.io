@@ -20,6 +20,7 @@ a {
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    scroll-snap-type: y proximity;
 }
 
 ::-webkit-scrollbar {
@@ -38,6 +39,7 @@ a {
     position: relative;
     width: 100vw;
     height: 100vh;
+    scroll-snap-align: center;
 }
 
 .progress-bar-container {
@@ -69,6 +71,7 @@ a {
     background: url("images/space.jpg") center center no-repeat local;
     background-size: cover;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .intro-opening {
@@ -533,6 +536,7 @@ a {
     background-color: rgba(255, 255, 255, .15);  
     backdrop-filter: blur(5px);
     overflow-y: scroll;
+    cursor: 
 }
 
 .projects-title {
