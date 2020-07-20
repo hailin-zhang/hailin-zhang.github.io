@@ -75,17 +75,13 @@ a {
 }
 
 .intro-opening {
-    background:#000 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat top center;
+    background: #000 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat top center;
     overflow: hidden;
 }
 
 .projects {
     background-color: #269;
-    background-image:
-        linear-gradient(rgba(255,255,255,.5) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(255,255,255,.5) 2px, transparent 2px),
-        linear-gradient(rgba(255,255,255,.28) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.28) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(255, 255, 255, .5) 2px, transparent 2px), linear-gradient(90deg, rgba(255, 255, 255, .5) 2px, transparent 2px), linear-gradient(rgba(255, 255, 255, .28) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .28) 1px, transparent 1px);
     background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
     background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
     display: flex;
@@ -98,6 +94,8 @@ a {
     background-size: 22%;
     background-repeat: round;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hobbies {
@@ -410,7 +408,7 @@ a {
 }
 
 .twinkling {
-    background:transparent url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png) repeat top center;
+    background: transparent url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png) repeat top center;
     z-index: 1;
     animation: move-twink-back 500s linear infinite;
 }
@@ -496,16 +494,14 @@ a {
     0% {
         width: 0;
     }
-
     30% {
         width: 100px;
     }
-
     100% {
         width: 0;
     }
 }
-  
+
 @keyframes shining {
     0% {
         width: 0;
@@ -517,7 +513,7 @@ a {
         width: 0;
     }
 }
-  
+
 @keyframes shooting {
     0% {
         transform: translateX(0);
@@ -534,7 +530,7 @@ a {
     align-items: center;
     width: 80%;
     height: 90%;
-    background-color: rgba(255, 255, 255, .15);  
+    background-color: rgba(255, 255, 255, .15);
     backdrop-filter: blur(5px);
     overflow-y: scroll;
 }
@@ -569,7 +565,7 @@ a {
     flex-direction: column;
     height: 86%;
     width: 96%;
-    margin: 2%
+    margin: 2%;
 }
 
 .projects-description-top {
@@ -641,6 +637,35 @@ a {
 
 .work-container {
     display: flex;
-    width: 48%;
-    margin: 0 2%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 86%;
+    width: 96%;
+    margin: 2%;
+    overflow-y: scroll;
+}
+
+.work-item {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.work-img {
+    height: 15vw;
+}
+
+.sap-img {
+    filter: brightness(0) invert(1);
+}
+
+.sap-bg:hover {
+    background: linear-gradient(120deg, #006fbb, #009cdf, #fbc100);
+}
+
+.fs-bg:hover {
+    background: linear-gradient(120deg, #ffffff,  #fbc100);
 }
