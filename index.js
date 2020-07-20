@@ -22,7 +22,7 @@ function debounce(func, wait, immediate) {
 }
 
 function awaitDOMLoad(callback) {
-    if (document.readyState != 'loading') {
+    if (document.readyState !== 'loading') {
         callback();
     } else if (document.addEventListener) {
         document.addEventListener('DOMContentLoaded', callback);
