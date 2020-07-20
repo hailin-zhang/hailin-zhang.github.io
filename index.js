@@ -2,6 +2,25 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function debounce(func, wait, immediate) {
+	let timeout;
+	return function() {
+		const context = this, args = arguments;
+		const later = function() {
+			timeout = null;
+			if (!immediate) {
+                func.apply(context, args);
+            }
+		};
+		const callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) {
+            func.apply(context, args);
+        }
+	}
+}
+
 function awaitDOMLoad(callback) {
     if (document.readyState != 'loading') {
         callback();
@@ -28,13 +47,14 @@ const loadSmoothScroll = () => {
     });
 }
 
-const loadStarWarsScene = () => {
+const renderParallax = () => {
     const scenes = [
         document.getElementById('death-star'),
         document.getElementById('millenium-falcon'),
         document.getElementById('left-tie'),
         document.getElementById('right-tie'),
         document.getElementById('x-wing'),
+        document.getElementById('blaster'),
     ];
     scenes.map((scene) => new Parallax(scene));
 }
@@ -211,10 +231,29 @@ const loadRandomIntroStar = () => {
     renderStar(0, 2, 35);
 }
 
+const playBlasterEffect = async () => {
+    const blasterContainerElem = document.querySelector('.blaster-container');
+    const blasterElem = document.querySelector('.blaster');
+    blasterElem.style.transform = 'rotate(-150deg)';
+    const blasterSound = new Audio('assets/blaster.wav');
+    blasterSound.play();
+    await sleep(Math.floor(Math.random() * 1600) + 800);
+    const scream = new Audio('assets/wilhelm.wav');
+    scream.play();
+}
+
+const openSite = () => {
+    window.open('http://jeanaroundtheworld.herokuapp.com/');
+}
+
+const openRepo = () => {
+    window.open('https://github.com/denim-squad/jean-around-the-world');
+}
+
 awaitDOMLoad(async () => {
     updateNav();
     loadSmoothScroll();
-    loadStarWarsScene();
+    renderParallax();
     loadText('title', 'Welcome to my website!', false, 45);
     await sleep(1200);
     loadText('subtitle', 'My name is Hai Lin', false, 45);

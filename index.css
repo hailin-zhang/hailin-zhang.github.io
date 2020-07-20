@@ -525,10 +525,94 @@ a {
 
 .projects-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 80%;
     height: 90%;
     background-color: rgba(255, 255, 255, .15);  
     backdrop-filter: blur(5px);
+}
+
+.projects-title {
+    font-size: 32px;
+    font-family: "Oswald", sans-serif;
+    color: white;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px dashed white;
+}
+
+.projects-description-container {
+    display: flex;
+    flex-direction: column;
+    height: 86%;
+    width: 96%;
+    margin: 2%
+}
+
+.projects-description-top {
+    height: 70%;
+    border-radius: 5px;
+    border: 3px dashed white;
+}
+
+.projects-description-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+}
+
+.projects-description-bottom {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 16px;
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    margin: 3% 10% 0 2%;
+}
+
+.blaster-container {
+    position: absolute;
+    bottom: 8%;
+    right: -12%;
+    z-index: 2;
+    transform: rotate(-55deg) !important;
+    pointer-events: auto !important;
+    transition: opacity 0.4s ease-out;
+    cursor: pointer;
+}
+
+.blaster-container:hover {
+    opacity: 0.2;
+}
+
+.blaster {
+    height: 22vw;
+    filter: blur(0.05em) brightness(0.89);
+    transition: transform 0.8s ease-out;
+}
+
+.link-container {
+    margin-top: 2%;
+    display: flex
+}
+
+.project-link-button {
+    height: 3vw;
+    transition: filter 0.1s ease-in-out;
+    filter: brightness(0) invert(0.8);
+    cursor: pointer;
+    padding-right: 4%;
+}
+
+.project-link-button:hover {
+    filter: brightness(0) invert(0.9);
 }
