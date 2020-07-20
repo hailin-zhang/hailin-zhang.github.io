@@ -109,18 +109,31 @@
                     <img src="images/blaster.png" class="blaster" data-depth="0.1" onclick="playBlasterEffect()">
                 </div>
                 <div class="projects-container">
-                    <span class="projects-title">Projects - Jean Around the World</span>
+                    <span class="projects-title">Projects</span>
                     <span class="projects-description-container">
+                        <span class="projects-subtitle">Jean Around the World</span>
                         <span class="projects-description-top">
                             <img src="images/jeanAroundTheWorld.jpg" class="projects-description-img">
                         </span>
-                        <span class="projects-description-bottom">
+                        <span class="projects-description-bottom projects-border-bottom">
                             Jean Around the World is a web app that allows users to plan an adventure anywhere in the world.
                             Built using a MERN (MongoDB, Express, React, Node.js) stack in a team of 4 students at the University of British Columbia.
                             The app takes in a user-specified location and radius to query the Google Places API, creating a path of restaurants, parks, etc., based on the user's preference!
                             <span class="link-container">
-                                <img src="images/start.png" class='project-link-button' onclick="openSite()">
-                                <img src="images/source.png" class='project-link-button' onclick="openRepo()">
+                                <img src="images/start.png" class='project-link-button' onclick="window.open('http://jeanaroundtheworld.herokuapp.com/')">
+                                <img src="images/source.png" class='project-link-button' onclick="window.open('https://github.com/denim-squad/jean-around-the-world/')">
+                            </span>
+                        </span>
+                        <span class="projects-subtitle subtitle-offset">ICBSeat</span>
+                        <span class="projects-description-top">
+                            <img src="images/icbseat.png" class="projects-description-img">
+                        </span>
+                        <span class="projects-description-bottom">
+                            ICBSeat is an office-sharing web application sponsored by ICBC that was built in a team of 7 UBC students.
+                            Using a React, Java (Spring Boot), and PostgreSQL stack, the application handles administrator functionalities such as room management
+                            and allows users to book and sign their own workspace up for bookings.
+                            <span class="link-container">
+                                <img src="images/start.png" class='project-link-button' onclick="window.open('https://icbseat-client.herokuapp.com/')">
                             </span>
                         </span>
                     </span>

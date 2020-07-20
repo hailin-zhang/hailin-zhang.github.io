@@ -232,22 +232,15 @@ const loadRandomIntroStar = () => {
 }
 
 const playBlasterEffect = async () => {
-    const blasterContainerElem = document.querySelector('.blaster-container');
     const blasterElem = document.querySelector('.blaster');
     blasterElem.style.transform = 'rotate(-150deg)';
     const blasterSound = new Audio('assets/blaster.wav');
+    blasterSound.volume = 0.2;
     blasterSound.play();
     await sleep(Math.floor(Math.random() * 1600) + 800);
     const scream = new Audio('assets/wilhelm.wav');
+    scream.volume = 0.3;
     scream.play();
-}
-
-const openSite = () => {
-    window.open('http://jeanaroundtheworld.herokuapp.com/');
-}
-
-const openRepo = () => {
-    window.open('https://github.com/denim-squad/jean-around-the-world');
 }
 
 awaitDOMLoad(async () => {

@@ -532,6 +532,7 @@ a {
     height: 90%;
     background-color: rgba(255, 255, 255, .15);  
     backdrop-filter: blur(5px);
+    overflow-y: scroll;
 }
 
 .projects-title {
@@ -544,6 +545,19 @@ a {
     align-items: center;
     justify-content: center;
     border-bottom: 2px dashed white;
+}
+
+.projects-subtitle {
+    font-size: 26px;
+    font-family: "Oswald", sans-serif;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.subtitle-offset {
+    margin-top: 2%;
 }
 
 .projects-description-container {
@@ -576,7 +590,11 @@ a {
     font-size: 16px;
     font-family: 'Oswald', sans-serif;
     color: white;
-    margin: 3% 10% 0 2%;
+    padding: 1% 10% 2% 2%;
+}
+
+.projects-border-bottom {
+    border-bottom: 2px dashed white;
 }
 
 .blaster-container {
