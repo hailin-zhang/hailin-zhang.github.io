@@ -247,9 +247,10 @@ const playBlasterEffect = async () => {
 }
 
 const openModal = (backgroundRGBA, planet) => {
+    const modalWrapper = document.getElementById('modal-wrapper');
+    modalWrapper.style.display = 'flex';
     const modal = document.getElementById('open-modal');
     modal.style.background = backgroundRGBA;
-    modal.style.display = 'flex';
     if (planet === 'hoth') {
         const video = document.createElement("video");
         const source = document.createElement("source");
@@ -262,12 +263,22 @@ const openModal = (backgroundRGBA, planet) => {
         video.muted = true;
         video.playbackRate = 1.5;
         video.play();
+        const imageLinks = [
+            'images/whistler1.jpg',
+            'images/whistler2.jpg',
+            'images/whistler3.jpg',
+        ];
+        imageLinks.map((imageLink) => {
+            const image = document.createElement("img");
+            image.setAttribute('src', imageLink);
+            image.classList.add('hobbies-item');
+            modal.appendChild(image);
+        });
     } else if (planet === 'alderaan') {
         const imageLinks = [
             'images/dog-mountain.jpg',
-            'images/minami.png',
-            'images/minami.png',
-            'images/minami.png',
+            'images/tofino.jpg',
+            'images/us.jpg',
         ];
         imageLinks.map((imageLink) => {
             const image = document.createElement("img");
@@ -276,16 +287,24 @@ const openModal = (backgroundRGBA, planet) => {
             modal.appendChild(image);
         });
     } else if (planet === 'mustafar') {
-        let image = document.createElement("img");
-        image.setAttribute('src', 'images/squirmies.png');
-        image.classList.add('hobbies-item');
-        modal.appendChild(image);
+        const imageLinks = [
+            'images/minami.png',
+            'images/squirmies.png',
+            'images/brix.jpg'
+        ];
+        imageLinks.map((imageLink) => {
+            const image = document.createElement("img");
+            image.setAttribute('src', imageLink);
+            image.classList.add('hobbies-item');
+            modal.appendChild(image);
+        });
     }
 }
 
 const closeModal = () => {
+    const modalWrapper = document.getElementById('modal-wrapper');
+    modalWrapper.style.display = 'none';
     const modal = document.getElementById('open-modal');
-    modal.style.display = 'none';
     modal.innerHTML = '';
 }
 
