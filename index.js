@@ -259,6 +259,7 @@ const openModal = (backgroundRGBA, planet) => {
         video.appendChild(source);
         modal.appendChild(video);
         video.classList.add('hobbies-item');
+        setTimeout(() => video.classList.add('animate'), 250);
         video.playsinline = true;
         video.muted = true;
         video.playbackRate = 1.5;
@@ -268,11 +269,12 @@ const openModal = (backgroundRGBA, planet) => {
             'images/whistler2.jpg',
             'images/whistler3.jpg',
         ];
-        imageLinks.map((imageLink) => {
+        imageLinks.map((imageLink, idx) => {
             const image = document.createElement("img");
             image.setAttribute('src', imageLink);
             image.classList.add('hobbies-item');
             modal.appendChild(image);
+            setTimeout(() => image.classList.add('animate'), (idx + 2) * 250);
         });
     } else if (planet === 'alderaan') {
         const imageLinks = [
@@ -280,11 +282,12 @@ const openModal = (backgroundRGBA, planet) => {
             'images/tofino.jpg',
             'images/us.jpg',
         ];
-        imageLinks.map((imageLink) => {
+        imageLinks.map((imageLink, idx) => {
             const image = document.createElement("img");
             image.setAttribute('src', imageLink);
             image.classList.add('hobbies-item');
             modal.appendChild(image);
+            setTimeout(() => image.classList.add('animate'), (idx + 1) * 250);
         });
     } else if (planet === 'mustafar') {
         const imageLinks = [
@@ -292,11 +295,12 @@ const openModal = (backgroundRGBA, planet) => {
             'images/squirmies.png',
             'images/brix.jpg'
         ];
-        imageLinks.map((imageLink) => {
+        imageLinks.map((imageLink, idx) => {
             const image = document.createElement("img");
             image.setAttribute('src', imageLink);
             image.classList.add('hobbies-item');
             modal.appendChild(image);
+            setTimeout(() => image.classList.add('animate'), (idx + 1) * 250);
         });
     }
 }
