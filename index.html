@@ -177,19 +177,17 @@
                     <span class="hobbies-subtitle">Things I like to do on...</span>
                     <span class="anchor-title hobbies-title" id="hobbies-title"></span>
                 </div>
-                <div class="modal-container" id="open-modal" onclick="closeModal()">
-                    <div class="modal-content">
-                        Hello!
-                    </div>
+                <div class="modal-bg" id="open-modal" onclick="closeModal()">
+                    <div class="modal-container"></div>
                 </div>
                 <div class="twinkling"></div>
-                <div class="hoth-container" id="hoth" onmouseover="renderTitleText('hobbies-title', 'Hoth')" onmouseout="clearTitleText('hobbies-title')" onclick="openModal('rgba(22, 57, 102, 0.3)')">
+                <div class="hoth-container" id="hoth" onmouseover="renderTitleText('hobbies-title', 'Hoth')" onmouseout="clearTitleText('hobbies-title')" onclick="openModal('rgba(22, 57, 102, 0.3)', 'hoth')">
                     <img src="images/hoth.png" class="hoth planet" data-depth="0.1">
                 </div>
-                <div class="alderaan-container" id="alderaan" onmouseover="renderTitleText('hobbies-title', 'Alderaan')" onmouseout="clearTitleText('hobbies-title')" onclick="openModal('rgba(60, 179, 113, 0.3)')">
+                <div class="alderaan-container" id="alderaan" onmouseover="renderTitleText('hobbies-title', 'Alderaan')" onmouseout="clearTitleText('hobbies-title')" onclick="openModal('rgba(60, 179, 113, 0.3)', 'alderaan')">
                     <img src="images/alderaan.png" class="alderaan planet" data-depth="0.01">
                 </div>
-                <div class="mustafar-container" id="mustafar" onmouseover="renderTitleText('hobbies-title', 'Mustafar')" onmouseout="clearTitleText('hobbies-title')" onclick="openModal('rgba(122, 19, 1, 0.3)')">
+                <div class="mustafar-container" id="mustafar" onmouseover="renderTitleText('hobbies-title', 'Mustafar')" onmouseout="clearTitleText('hobbies-title')" onclick="openModal('rgba(122, 19, 1, 0.3)', 'mustafar')">
                     <img src="images/mustafar.png" class="mustafar planet" data-depth="0.15">
                 </div>
             </div>

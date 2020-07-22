@@ -246,15 +246,47 @@ const playBlasterEffect = async () => {
     scream.play();
 }
 
-const openModal = (backgroundRGBA) => {
+const openModal = (backgroundRGBA, planet) => {
     const modal = document.getElementById('open-modal');
     modal.style.background = backgroundRGBA;
     modal.style.display = 'flex';
+    if (planet === 'hoth') {
+        const video = document.createElement("video");
+        const source = document.createElement("source");
+        source.setAttribute("src", "assets/ski.mp4");
+        source.setAttribute("type", "video/mp4");
+        video.appendChild(source);
+        modal.appendChild(video);
+        video.classList.add('hobbies-item');
+        video.playsinline = true;
+        video.muted = true;
+        video.playbackRate = 1.5;
+        video.play();
+    } else if (planet === 'alderaan') {
+        const imageLinks = [
+            'images/dog-mountain.jpg',
+            'images/minami.png',
+            'images/minami.png',
+            'images/minami.png',
+        ];
+        imageLinks.map((imageLink) => {
+            const image = document.createElement("img");
+            image.setAttribute('src', imageLink);
+            image.classList.add('hobbies-item');
+            modal.appendChild(image);
+        });
+    } else if (planet === 'mustafar') {
+        let image = document.createElement("img");
+        image.setAttribute('src', 'images/squirmies.png');
+        image.classList.add('hobbies-item');
+        modal.appendChild(image);
+    }
 }
 
 const closeModal = () => {
     const modal = document.getElementById('open-modal');
     modal.style.display = 'none';
+    modal.innerHTML = '';
 }
 
 awaitDOMLoad(async () => {
