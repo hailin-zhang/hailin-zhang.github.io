@@ -768,7 +768,7 @@ a {
     font-size: 46px;
 }
 
-.modal-bg {
+.modal-container {
     z-index: 99;
     display: none;
     justify-content: flex-start;

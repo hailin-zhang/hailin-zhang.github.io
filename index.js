@@ -293,8 +293,8 @@ awaitDOMLoad(async () => {
     updateNav();
     loadSmoothScroll();
     renderParallax();
-    loadText('title', 'Welcome to my website!', false, 45);
-    await sleep(1200);
-    loadText('subtitle', 'My name is Hai Lin', false, 45);
+    loadText('title', 'Hello there,', false, 45);
+    await sleep(1000);
+    loadText('subtitle', 'My name is Hai Lin. Welcome to my website!', false, 45);
     loadRandomIntroStar();
 });
