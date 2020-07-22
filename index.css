@@ -90,13 +90,13 @@ a {
 }
 
 .work {
-    background: #000 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat top center;
+    background: #000 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat top left;
     display: flex;
     overflow-y: scroll;
 }
 
 .hobbies {
-    background: url("images/aboutME.jpg") center center no-repeat local;
+    background: #000 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat top right;
 }
 
 .about {
