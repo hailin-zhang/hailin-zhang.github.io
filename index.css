@@ -96,6 +96,11 @@ a {
 
 .hobbies {
     background: #000 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat top right;
+    font-family: "Oswald", sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .about {
@@ -746,12 +751,30 @@ a {
     filter: drop-shadow(0 0 48px rgba(122, 19, 1, 1.4)) brightness(1);
 }
 
-.hobbies-title {
+.hobbies-description-container {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     left: 72vw;
     bottom: 8%;
-    display: flex;
-    font-family: "Oswald", sans-serif;
-    color: white;
     z-index: 2;
+}
+
+.hobbies-subtitle {
+    font-size: 18px;
+}
+
+.hobbies-title {
+    font-size: 46px;
+}
+
+.modal-container {
+    z-index: 5;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 0, 255, 0.2);
+    transition: all 0.3s;
 }

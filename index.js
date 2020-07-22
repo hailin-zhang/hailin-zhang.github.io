@@ -246,6 +246,17 @@ const playBlasterEffect = async () => {
     scream.play();
 }
 
+const openModal = (backgroundRGBA) => {
+    const modal = document.getElementById('open-modal');
+    modal.style.background = backgroundRGBA;
+    modal.style.display = 'flex';
+}
+
+const closeModal = () => {
+    const modal = document.getElementById('open-modal');
+    modal.style.display = 'none';
+}
+
 awaitDOMLoad(async () => {
     updateNav();
     loadSmoothScroll();
