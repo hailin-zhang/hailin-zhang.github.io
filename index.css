@@ -70,8 +70,7 @@ a {
 .home {
     background: url("images/space.jpg") center center no-repeat local;
     background-size: cover;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .intro-opening {
@@ -633,14 +632,14 @@ a {
 .work-container {
     height: 100%;
     width: 100%;
-    z-index: 3;
+    z-index: 4;
 }
 
 .work-description-container {
     position: absolute;
     height: 100%;
     width: 100%;
-    z-index: 2;
+    z-index: 3;
     font-family: 'Pathway Gothic One', sans-serif;
     font-size: 22px;
     color: white;
@@ -686,4 +685,73 @@ a {
 
 .ubc-bg {
     background: linear-gradient(120deg, #40B4E5, #6EC4E8, #97D4E9, #ffffff);
+}
+
+.planet {
+    pointer-events: auto !important;
+}
+
+.planet:hover {
+    cursor: pointer;
+}
+
+.hoth-container {
+    position: absolute;
+    left: 68%;
+    top: 38%;
+    transform: translate(-32%, -62%) !important;
+    z-index: 2;
+}
+
+.hoth {
+    width: 16vw;
+    filter: brightness(0.6);
+}
+
+.hoth:hover {
+    filter: drop-shadow(0 0 48px rgba(22, 57, 102, 1.4)) brightness(1);
+}
+
+.alderaan-container {
+    position: absolute;
+    left: 28%;
+    top: 78%;
+    transform: translate(-72%, -22%) !important;
+    z-index: 2;
+}
+
+.alderaan {
+    width: 86vw;
+    filter: brightness(0.7);
+}
+
+.alderaan:hover {
+    filter: drop-shadow(0 0 88px rgba(60, 179, 113, 0.4)) brightness(1);
+}
+
+.mustafar-container {
+    position: absolute;
+    left: 18%;
+    top: 22%;
+    transform: translate(-82%, -78%) !important;
+    z-index: 2;
+}
+
+.mustafar {
+    width: 12vw;
+    filter: brightness(0.68);
+}
+
+.mustafar:hover {
+    filter: drop-shadow(0 0 48px rgba(122, 19, 1, 1.4)) brightness(1);
+}
+
+.hobbies-title {
+    position: absolute;
+    left: 72vw;
+    bottom: 8%;
+    display: flex;
+    font-family: "Oswald", sans-serif;
+    color: white;
+    z-index: 2;
 }

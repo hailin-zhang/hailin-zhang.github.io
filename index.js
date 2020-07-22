@@ -55,20 +55,23 @@ const renderParallax = () => {
         document.getElementById('right-tie'),
         document.getElementById('x-wing'),
         document.getElementById('blaster'),
+        document.getElementById('hoth'),
+        document.getElementById('alderaan'),
+        document.getElementById('mustafar'),
     ];
     scenes.map((scene) => new Parallax(scene));
 }
 
-const renderAnchorText = async (str) => {
-    await clearAnchorText();
-    loadText('anchor-text', str, true);
+const renderTitleText = async (tag, str) => {
+    await clearTitleText(tag);
+    loadText(tag, str, true);
 }
 
-const clearAnchorText = async () => {
-    const anchorNode = document.getElementById('anchor-text');
+const clearTitleText = async (tag) => {
+    const anchorNode = document.getElementById(tag);
     if (!!anchorNode) {
         const anchorParentNode = anchorNode.parentElement;
-        const defaultAnchorHTML = `<span class="anchor-title" id="anchor-text"></span>`;
+        const defaultAnchorHTML = `<span class="anchor-title${tag === 'hobbies-title' ? ' hobbies-title' : ''}" id="${tag}"></span>`;
         anchorNode.parentElement.removeChild(anchorNode);
         anchorParentNode.insertAdjacentHTML('beforeend', defaultAnchorHTML);
     }

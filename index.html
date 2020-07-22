@@ -40,24 +40,24 @@
                     <span class="description-subtitle" id="subtitle"></span>
                     <span class="anchor-title" id="anchor-text"></span>
                 </div>
-                <a href="#intro" class="death-star-container" id="death-star" onmouseover="renderAnchorText('Intro')"
-                    onmouseout="clearAnchorText()">
+                <a href="#intro" class="death-star-container" id="death-star" onmouseover="renderTitleText('anchor-text', 'Intro')"
+                    onmouseout="clearTitleText('anchor-text')">
                     <img src="images/death-star.png" class="death-star" data-depth="0.1">
                 </a>
                 <a href="#projects" class="millenium-falcon-container" id="millenium-falcon"
-                    onmouseover="renderAnchorText('Projects')" onmouseout="clearAnchorText()">
+                    onmouseover="renderTitleText('anchor-text', 'Projects')" onmouseout="clearTitleText('anchor-text')">
                     <img src="images/millenium-falcon.png" class="millenium-falcon" data-depth="0.6">
                 </a>
                 <a href="#workExperience" class="x-wing-container" id="x-wing"
-                    onmouseover="renderAnchorText('Work Experience')" onmouseout="clearAnchorText()">
+                    onmouseover="renderTitleText('anchor-text', 'Work Experience')" onmouseout="clearTitleText('anchor-text')">
                     <img src="images/x-wing.png" class="x-wing" data-depth="0.4">
                 </a>
-                <a href="#hobbies" class="left-tie-container" id="left-tie" onmouseover="renderAnchorText('Hobbies')"
-                    onmouseout="clearAnchorText()">
+                <a href="#hobbies" class="left-tie-container" id="left-tie" onmouseover="renderTitleText('anchor-text', 'Hobbies')"
+                    onmouseout="clearTitleText('anchor-text')">
                     <img src="images/tie-fighter.png" class="left-tie" data-depth="0.7">
                 </a>
-                <a href="#aboutMe" class="right-tie-container" id="right-tie" onmouseover="renderAnchorText('About Me')"
-                    onmouseout="clearAnchorText()">
+                <a href="#aboutMe" class="right-tie-container" id="right-tie" onmouseover="renderTitleText('anchor-text', 'About Me')"
+                    onmouseout="clearTitleText('anchor-text')">
                     <img src="images/tie-fighter.png" class="right-tie" data-depth="0.8">
                 </a>
             </div>
@@ -162,10 +162,10 @@
                 </span>
                 <span class="work-description-container">
                     <span class="work-description-item">
-                        I am a current Agile Developer Intern at SAP. I am involved in developing and maintaining tools which facilitate the translation process. My work includes topic such as integrations with third-party products as well as performance improvements through lazy loading.
+                        I am currently working as an Agile Developer Intern at SAP. I am involved in developing and maintaining tools which facilitate the translation process. My work includes topic such as integrations with third-party products as well as performance improvements through lazy loading.
                     </span>
                     <span class="work-description-item">
-                        Since September 2019, I have worked at Fatigue Science as a Junior Software Engineer. I work on the mobile team, focusing on 3 cross-platform mobile applications. As a front-end developer, I have also assisted in delivering our ReadiAnalytics web application.
+                        Since September 2018, I have worked at Fatigue Science as a Junior Software Engineer. I work on the mobile team, focusing on 3 cross-platform mobile applications. As a front-end developer, I have also assisted in delivering our ReadiAnalytics web application.
                     </span>
                     <span class="work-description-item">
                         I have been a Teaching Assistant for 3 courses (Industry Skills, Introduction to Data Structures + Algorithms, Introduction to Artificial Intelligence) at the University of British Columbia. I am involved in running tutorials and labs, answering student queries, and grading assignments and exams.
@@ -173,7 +173,17 @@
                 </span>
             </div>
             <div class="content-block hobbies" id="hobbies">
+                <span class="anchor-title hobbies-title" id="hobbies-title"></span>
                 <div class="twinkling"></div>
+                <div class="hoth-container" id="hoth" onmouseover="renderTitleText('hobbies-title', 'Hoth')" onmouseout="clearTitleText('hobbies-title')">
+                    <img src="images/hoth.png" class="hoth planet" data-depth="0.1">
+                </div>
+                <div class="alderaan-container" id="alderaan" onmouseover="renderTitleText('hobbies-title', 'Alderaan')" onmouseout="clearTitleText('hobbies-title')">
+                    <img src="images/alderaan.png" class="alderaan planet" data-depth="0.01">
+                </div>
+                <div class="mustafar-container" id="mustafar" onmouseover="renderTitleText('hobbies-title', 'Mustafar')" onmouseout="clearTitleText('hobbies-title')">
+                    <img src="images/mustafar.png" class="mustafar planet" data-depth="0.15">
+                </div>
             </div>
             <div class="content-block about" id="aboutMe">
             </div>
