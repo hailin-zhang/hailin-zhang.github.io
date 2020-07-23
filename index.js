@@ -126,12 +126,14 @@ const updateNav = () => {
         navContainer.style.display = 'none';
         hideIntroCrawl();
         mute();
+        hideAboutBlocks();
     // Intro
     } else if ((offsetRight < 5 * widthOfContentPage) && (offsetRight > 4 * offsetWidth)) {
         navContainer.style.display = 'flex';
         leftAnchor.href = '#home';
         rightAnchor.href = '#projects';
         showIntroCrawl();
+        hideAboutBlocks();
     // Projects
     } else if ((offsetRight < 4 * offsetWidth) && (offsetRight > 3 * offsetWidth)) {
         navContainer.style.display = 'flex';
@@ -139,6 +141,7 @@ const updateNav = () => {
         rightAnchor.href = '#workExperience';
         hideIntroCrawl();
         mute();
+        hideAboutBlocks();
     // Work Experience
     } else if ((offsetRight < 3 * offsetWidth) && (offsetRight > 2 * offsetWidth)) {
         navContainer.style.display = 'flex';
@@ -146,6 +149,7 @@ const updateNav = () => {
         rightAnchor.href = '#hobbies';
         hideIntroCrawl();
         mute();
+        hideAboutBlocks();
     // Hobbies
     } else if ((offsetRight < 2 * offsetWidth) && (offsetRight > 1 * offsetWidth)) {
         navContainer.style.display = 'flex';
@@ -153,6 +157,7 @@ const updateNav = () => {
         rightAnchor.href = '#aboutMe';
         hideIntroCrawl();
         mute();
+        hideAboutBlocks();
     // About Me
     } else {
         navContainer.style.display = 'flex';
@@ -160,6 +165,7 @@ const updateNav = () => {
         rightAnchor.href = '#home';
         hideIntroCrawl();
         mute();
+        showAboutBlocks();
     }
 }
 
@@ -267,7 +273,7 @@ const openModal = (backgroundRGBA, planet) => {
         const imageLinks = [
             'images/whistler1.jpg',
             'images/whistler2.jpg',
-            'images/whistler3.jpg',
+            'images/dead.jpg',
         ];
         imageLinks.map((imageLink, idx) => {
             const image = document.createElement("img");
@@ -279,8 +285,8 @@ const openModal = (backgroundRGBA, planet) => {
     } else if (planet === 'alderaan') {
         const imageLinks = [
             'images/dog-mountain.jpg',
+            'images/nucks.jpg',
             'images/tofino.jpg',
-            'images/us.jpg',
         ];
         imageLinks.map((imageLink, idx) => {
             const image = document.createElement("img");
@@ -292,8 +298,9 @@ const openModal = (backgroundRGBA, planet) => {
     } else if (planet === 'mustafar') {
         const imageLinks = [
             'images/minami.png',
+            'images/noods.jpg',
             'images/squirmies.png',
-            'images/brix.jpg'
+            'images/brix.jpg',
         ];
         imageLinks.map((imageLink, idx) => {
             const image = document.createElement("img");
@@ -310,6 +317,20 @@ const closeModal = () => {
     modalWrapper.style.display = 'none';
     const modal = document.getElementById('open-modal');
     modal.innerHTML = '';
+}
+
+const hideAboutBlocks = () => {
+    const aboutLeft = document.getElementById('about-block-left');
+    const aboutRight = document.getElementById('about-block-right');
+    aboutLeft.classList.remove('unfade');
+    aboutRight.classList.remove('unfade');
+}
+
+const showAboutBlocks = () => {
+    const aboutLeft = document.getElementById('about-block-left');
+    const aboutRight = document.getElementById('about-block-right');
+    aboutLeft.classList.add('unfade');
+    aboutRight.classList.add('unfade');
 }
 
 awaitDOMLoad(async () => {

@@ -806,3 +806,35 @@ a {
 .hobbies-item.animate {
     transform: scale(1);
 }
+
+
+.about-block {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 1% 2%;
+    background-color: darkslategrey;
+    border-radius: 2px;
+    opacity: 0;
+    width: 20%;
+    transition: opacity 2.4s; 
+    color: #fbfde4;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 22px;
+}
+
+.about-right {
+    bottom: 12%;
+    right: 5%;
+    padding: 1% 2%;
+}
+
+.about-left {
+    left: 4%;
+    top: 12%;
+    padding: 1% 2%;
+}
+
+.about-block.unfade {
+    opacity: 0.88;
+}
