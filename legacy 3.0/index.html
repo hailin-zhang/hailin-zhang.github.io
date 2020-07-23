@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CPSC 436I A1 - Hai Lin Zhang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+    <script type="text/javascript" src="index.js"></script>
+</head>
+<body onload="initSketchpad()">
+    <span id="loading-spinner"></span>
+    <canvas class="canvas" id="sketchpad" width="100px" height="100px"></canvas>
+    <div class="navbar hidden" id="navbar" onmouseover="unhideNavbar()">
+        <span class="navbar-item-selected">
+            Home
+        </span>
+        <span class="navbar-item" onclick="navToAboutMe()">
+            About Me
+        </span>  
+        <span class="navbar-item" onclick="openCitationsAlert()">
+            Citations
+        </span>
+        <span class="navbar-item" onclick="hideNavbar()">
+            Hide &#x2934;  
+        </span>
+    </div>
+    <div class="lists-container hidden" id="lists-container"> 
+        <div class="write-name-field">
+            <span class="title">
+                <h1>Who Died?</h1>
+            </span>
+            <span class="title">
+                <h3>Enter a name to see if they died when Thanos snapped</h6>
+            </span>
+            <textarea 
+                name="textarea" 
+                rows="5" 
+                cols="25" 
+                minlength="1" 
+                maxlength="50"
+                placeholder="Write a name here"
+                id="name-form"
+            ></textarea>
+            <div class="write-buttons-container">
+                <button class="write-name-button" onclick="clearName()">
+                    <span>Clear Text</span>
+                </button>
+                <button class="write-name-button" onclick="clearList()">
+                    <span>Clear Lists</span>
+                </button>
+                <button class="write-name-button" onclick="submitName()">
+                    <span>Submit Name</span>
+                </button>
+            </div>
+        </div>
+        <div class="alive-list" id="alive-list">
+            <span class="alive-title">
+                <h1>Alive</h1>
+            </span>
+        </div>
+        <div class="dead-list" id="dead-list">
+            <span class="dead-title">
+                <h1>Dead</h1>
+            </span>
+        </div>
+    </div>
+    
+</body>
+</html>

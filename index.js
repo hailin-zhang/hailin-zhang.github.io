@@ -1,359 +1,344 @@
-let navbarIsHidden = false;
-let canvas, ctx;
-let mouseX, mouseY, mouseDown = 0;
-const colors = [
-    {
-        r: 0,
-        g: 0,
-        b: 0
-    },
-    {
-        r: 255,
-        g: 0,
-        b: 0
-    },
-    {
-        r: 0,
-        g: 255,
-        b: 0
-    },
-    {
-        r: 0,
-        g: 0,
-        b: 255
-    },
-    {
-        r: 255,
-        g: 165,
-        b: 0
-    },
-    {
-        r: 255,
-        g: 255,
-        b: 0
-    },
-    {
-        r: 128,
-        g: 0,
-        b: 128
-    },
-    {
-        r: 255,
-        g: 192,
-        b: 203
-    },
-    {
-        r: 165,
-        g: 42,
-        b: 42
-    },
-    {
-        r: 255,
-        g: 255,
-        b: 255
-    }
-]
-let currentColor = colors[0], colorIncrementer = 0, dotSize = 3;
-let deadList = [
-    { 
-        "name":"Black Panther" 
-    },
-    { 
-        "name":"Falcon" 
-    },
-    { 
-        "name":"Winter Soldier" 
-    },
-    { 
-        "name":"Scarlet Witch" 
-    },
-    { 
-        "name":"Drax" 
-    },
-    { 
-        "name":"Groot" 
-    },
-    { 
-        "name":"Mantis" 
-    },
-    { 
-        "name":"Star Lord" 
-    },
-    { 
-        "name":"Spider-Man" 
-    },
-    { 
-        "name":"Doctor Strange" 
-    },
-    { 
-        "name":"Nick Fury" 
-    }
-];
-let aliveList = [
-    { 
-        "name":"Thor" 
-    },
-    { 
-        "name":"Captain America" 
-    },
-    { 
-        "name":"Iron Man" 
-    },
-    { 
-        "name":"War Machine" 
-    },
-    { 
-        "name":"Black Widow" 
-    },
-    { 
-        "name":"Nebula" 
-    },
-    { 
-        "name":"Okoye" 
-    },
-    { 
-        "name":"Rocket" 
-    },
-    { 
-        "name":"Bruce Banner / Hulk" 
-    },
-    { 
-        "name":"Captain Marvel" 
-    },
-    { 
-        "name":"Hawkeye" 
-    },
-    { 
-        "name":"Ant-Man" 
-    }
-];
-
-function hideNavbar() {
-    navbarIsHidden = true;
-    document.getElementById('navbar').classList.toggle('hidden');
-    document.getElementById('lists-container').classList.toggle('hidden');
-}
-
-function unhideNavbar() {
-    clearCanvas(canvas, ctx);
-    if (navbarIsHidden) {
-        document.getElementById('navbar').classList.toggle('hidden');
-        document.getElementById('lists-container').classList.toggle('hidden');
-        navbarIsHidden = false; 
-    }
-}
-
-function openCitationsAlert() {
-    window.open('https://github.com/hailin-zhang/CPSC-436I-Assignments/blob/master/Assignment%201/citations.md');
-}
-
-function displayLoadingSpinner() {
-    document.getElementById('loading-spinner').style.display = 'block';
-}
-
-function hideLoadingSpinner() {
-    document.getElementById('loading-spinner').style.display = 'none';
-}
-
-async function navToAboutMe() {
-    displayLoadingSpinner();
-    await setTimeout(() => {
-        hideLoadingSpinner();   
-        location.href = 'about-me.html';
-    }, 2800);
-}
-
-function drawDot(ctx, x, y, rgbObject, size) {
-    if (navbarIsHidden) { 
-        ctx.fillStyle = `rgba(${rgbObject.r}, ${rgbObject.g}, ${rgbObject.b}, 1)`;
-        ctx.beginPath();
-        ctx.arc(x, y, size, 0, Math.PI*2, true); 
-        ctx.closePath();
-        ctx.fill();
-    }
-} 
-
-function clearCanvas(canvas, ctx) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
-
-function sketchpad_mouseDown(e) {
-    switch (e.which) {
-        case 3: 
-            changeColor();
-            return;
-        default: 
-            mouseDown = 1;
-            drawDot(ctx, mouseX, mouseY, currentColor, dotSize);
-            return;
-    }
-}
-
-function changeColor() {
-    colorIncrementer = (colorIncrementer + 1) % colors.length;
-    currentColor = colors[colorIncrementer];
-}
-
-function sketchpad_mouseUp() {
-    mouseDown = 0;
-}
-
-function sketchpad_mouseMove(e) { 
-    getMousePos(e);
-    if (mouseDown == 1) {
-        drawDot(ctx, mouseX, mouseY, currentColor, dotSize);
-    }
-}
-
-function getMousePos(e) {
-    if (!e) {
-        const e = event;
-    } if (e.offsetX) {
-        mouseX = e.offsetX;
-        mouseY = e.offsetY;
-    } else if (e.layerX) {
-        mouseX = e.layerX;
-        mouseY = e.layerY;
-    }
-}
-
-function changeDotSize(e) {
-    const sizeChange = 2;
-    e.deltaY > 0 ? (dotSize - sizeChange > 0 ? dotSize -= sizeChange : 1) : dotSize += sizeChange;
-}
-
-function initSketchpad() {
-    canvas = document.getElementById('sketchpad');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    ctx = canvas.getContext('2d');
-    canvas.addEventListener('mousedown', sketchpad_mouseDown, false);
-    canvas.addEventListener('mousemove', sketchpad_mouseMove, false);
-    canvas.addEventListener('wheel', changeDotSize, { passive: true });
-    document.addEventListener('keyup', (e) => {
-        // clear on spacebar click
-        if (e.keyCode === 32) {
-            clearCanvas(canvas, ctx);
-        }
-    }, false);
-    window.addEventListener('mouseup', sketchpad_mouseUp, false);
-    loadLists();
-}
-
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-}  
-
-async function loadLists() {
-    const alive_list = document.getElementById('alive-list');
-    const dead_list = document.getElementById('dead-list');
-    const alive_ul = document.createElement('ul');
-    const dead_ul = document.createElement('ul');
-    formatList(alive_list, alive_ul, true);
-    formatList(dead_list, dead_ul);
-    alive_ul.classList.add('list-ul');
-    dead_ul.classList.add('list-ul');
-    alive_ul.id = 'alive-list-ul';
-    dead_ul.id = 'dead-list-ul';
-    await Array.from(alive_ul.getElementsByTagName("li")).forEach(async (li) => {
-            await sleep(1436);  
-            li.className += ' show';
-        }
-    );
-    await Array.from(dead_ul.getElementsByTagName("li")).forEach(async (li) => {
-            await sleep(1436);  
-            setTimeout(() => li.className += ' show', 436);
-        }
-    );
-    console.log(`loaded lists`);
-    console.log('alive:');
-    console.log(aliveList);
-    console.log('dead:');
-    console.log(deadList);
 }
 
-function formatList(document_list, ul, isAliveList = false) {
-    let li;
-    const currentList = isAliveList ? aliveList : deadList;
-    currentList.map((listObj) => {
-            li = document.createElement('li');
-            li.innerHTML = listObj.name;
-            li.className = 'list-li';
-            ul.appendChild(li);
-       }
-    );
-    document_list.appendChild(ul);
+function debounce(func, wait, immediate) {
+	let timeout;
+	return function() {
+		const context = this, args = arguments;
+		const later = function() {
+			timeout = null;
+			if (!immediate) {
+                func.apply(context, args);
+            }
+		};
+		const callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) {
+            func.apply(context, args);
+        }
+	}
 }
 
-async function clearList() {
-    displayLoadingSpinner();
-    await setTimeout(() => {
-        hideLoadingSpinner();
-        aliveList = [];
-        deadList = [];
-        const alive_list_ul = document.getElementById('alive-list-ul');
-        const dead_list_ul = document.getElementById('dead-list-ul');
-        if (alive_list_ul) {
-            alive_list_ul.parentNode.removeChild(alive_list_ul);
-        }
-        if (dead_list_ul) {
-            dead_list_ul.parentNode.removeChild(dead_list_ul);
-        }
-        const alive_list = document.getElementById('alive-list');
-        const dead_list = document.getElementById('dead-list');
-        const alive_ul = document.createElement('ul');
-        const dead_ul = document.createElement('ul');
-        const alive_length = aliveList.length;
-        const dead_length = deadList.length;
-        alive_ul.classList.add('list-ul');
-        dead_ul.classList.add('list-ul');
-        alive_ul.id = 'alive-list-ul';
-        dead_ul.id = 'dead-list-ul';
-        formatList(alive_list, alive_ul, alive_length, true);
-        formatList(dead_list, dead_ul, dead_length);
-        console.log(`cleared lists`);
-        console.log('alive:');
-        console.log(aliveList);
-        console.log('dead:');
-        console.log(deadList);
-    }, 800);
-}
-
-async function submitName() {
-    const nameTextArea = document.getElementById('name-form');
-    const inputtedName = nameTextArea.value;
-    if (inputtedName) {  
-        nameTextArea.className = '';
-        const isAlive = ~~(Math.random() * 10 + 1) > 5;
-        const documentUL = document.getElementById(isAlive ? 'alive-list-ul' : 'dead-list-ul');
-        const newLI = document.createElement('li');
-        newLI.className = 'list-li';
-        isAlive ? 
-            aliveList.push({
-                "name": inputtedName
-            }) :
-            deadList.push({
-                "name": inputtedName
-            });
-        newLI.innerHTML = isAlive ? aliveList[aliveList.length-1].name : deadList[deadList.length-1].name;
-        documentUL.appendChild(newLI);
-        setTimeout(() => newLI.className = newLI.className + ' show', 100);
-        console.log(`submitted ${inputtedName}:`);
-        console.log('alive:');
-        console.log(aliveList);
-        console.log('dead:');
-        console.log(deadList);
+function awaitDOMLoad(callback) {
+    if (document.readyState !== 'loading') {
+        callback();
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', callback);
     } else {
-        nameTextArea.className = 'textarea-error';
+        document.attachEvent('onreadystatechange', () => {
+            if (document.readyState === 'complete') {
+                callback();
+            }
+        });
     }
 }
 
-function clearName() {
-    document.getElementById('name-form').value = '';
+const loadSmoothScroll = () => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth',
+            });
+        });
+    });
 }
 
-setTimeout(() => {
-    document.getElementById('navbar').classList.toggle('hidden');
-    document.getElementById('lists-container').classList.toggle('hidden');
-    }, 436
-);
+const renderParallax = () => {
+    const scenes = [
+        document.getElementById('death-star'),
+        document.getElementById('millenium-falcon'),
+        document.getElementById('left-tie'),
+        document.getElementById('right-tie'),
+        document.getElementById('x-wing'),
+        document.getElementById('blaster'),
+        document.getElementById('hoth'),
+        document.getElementById('alderaan'),
+        document.getElementById('mustafar'),
+    ];
+    scenes.map((scene) => new Parallax(scene));
+}
+
+const renderTitleText = async (tag, str) => {
+    await clearTitleText(tag);
+    loadText(tag, str, true);
+}
+
+const clearTitleText = async (tag) => {
+    const anchorNode = document.getElementById(tag);
+    if (!!anchorNode) {
+        const anchorParentNode = anchorNode.parentElement;
+        const defaultAnchorHTML = `<span class="anchor-title${tag === 'hobbies-title' ? ' hobbies-title' : ''}" id="${tag}"></span>`;
+        anchorNode.parentElement.removeChild(anchorNode);
+        anchorParentNode.insertAdjacentHTML('beforeend', defaultAnchorHTML);
+    }
+}
+
+const loadText = async (tag, str, showBar = false, typeSpeed = 70) => {
+    const tagElem = document.getElementById(tag);
+    tagElem.innerHTML = ' ';
+    let n = 0;
+    const typeTimer = setInterval(() => {
+        n = n + 1;
+        tagElem.innerHTML = str.slice(0, n);
+        if (n === str.length) {
+            clearInterval(typeTimer);
+            tagElem.innerHTML = str;
+            n = 0;
+            setInterval(() => {
+                if (n === 0) {
+                    tagElem.innerHTML = str + `${showBar ? '|' : ''}`;
+                    n = 1;
+                } else {
+                    tagElem.innerHTML = str;
+                    n = 0;
+                };
+            }, 600);
+        };
+    }, typeSpeed);
+}
+
+const updateScrollProgressBar = () => {
+    const scrollContainer = document.querySelector(".scroll-container");
+    const scrollHeightTotal = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+    const scrollHeightCurrent = scrollContainer.scrollTop;
+    const progressBarNode = document.querySelector(".progress-bar");
+    const scrollPercentage = (scrollHeightCurrent / scrollHeightTotal) * 100;
+    progressBarNode.style.width = scrollPercentage + "%";
+}
+
+const updateNav = () => {
+    const scrollContainer = document.querySelector(".scroll-container");
+    const navContainer = document.querySelector(".nav-container");
+    const scrollHeightTotal = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+    const offsetRight = scrollHeightTotal - scrollContainer.scrollTop + 0.004 * scrollHeightTotal;
+    navContainer.style.right = `${offsetRight}px`;
+    // update buttons
+    const leftAnchor = document.querySelector('.nav-back');
+    const rightAnchor = document.querySelector('.nav-fwd');
+    const widthOfContentPage = document.getElementById('home').offsetWidth;
+    const offsetWidth = widthOfContentPage - widthOfContentPage / 20;
+    // Home
+    if ((offsetRight < 6 * offsetWidth) && (offsetRight > 5 * widthOfContentPage)) {
+        navContainer.style.display = 'none';
+        hideIntroCrawl();
+        mute();
+        hideAboutBlocks();
+    // Intro
+    } else if ((offsetRight < 5 * widthOfContentPage) && (offsetRight > 4 * offsetWidth)) {
+        navContainer.style.display = 'flex';
+        leftAnchor.href = '#home';
+        rightAnchor.href = '#projects';
+        showIntroCrawl();
+        hideAboutBlocks();
+    // Projects
+    } else if ((offsetRight < 4 * offsetWidth) && (offsetRight > 3 * offsetWidth)) {
+        navContainer.style.display = 'flex';
+        leftAnchor.href = '#intro';
+        rightAnchor.href = '#workExperience';
+        hideIntroCrawl();
+        mute();
+        hideAboutBlocks();
+    // Work Experience
+    } else if ((offsetRight < 3 * offsetWidth) && (offsetRight > 2 * offsetWidth)) {
+        navContainer.style.display = 'flex';
+        leftAnchor.href = '#projects';
+        rightAnchor.href = '#hobbies';
+        hideIntroCrawl();
+        mute();
+        hideAboutBlocks();
+    // Hobbies
+    } else if ((offsetRight < 2 * offsetWidth) && (offsetRight > 1 * offsetWidth)) {
+        navContainer.style.display = 'flex';
+        leftAnchor.href = '#workExperience';
+        rightAnchor.href = '#aboutMe';
+        hideIntroCrawl();
+        mute();
+        hideAboutBlocks();
+    // About Me
+    } else {
+        navContainer.style.display = 'flex';
+        leftAnchor.href = '#hobbies';
+        rightAnchor.href = '#home';
+        hideIntroCrawl();
+        mute();
+        showAboutBlocks();
+    }
+}
+
+const hideIntroCrawl = () => {
+    const introText = document.querySelector('.intro-text');
+    introText.style.display = 'none';
+    const starWarsLogo = document.querySelector('.star-wars-logo');
+    starWarsLogo.style.display = 'none';
+    const introAnimation = document.querySelector('.crawl-animation');
+    introAnimation.style.animation = 'none';
+    const introStarWarsPage = document.querySelector('.star-wars-container');
+    introStarWarsPage.style.display = 'none';
+    const bgmElem = document.getElementById('audio');
+    bgmElem.pause();
+    bgmElem.load();
+}
+
+const showIntroCrawl = async () => {
+    const introText = document.querySelector('.intro-text');
+    introText.style.display = 'block';
+    const starWarsLogo = document.querySelector('.star-wars-logo');
+    starWarsLogo.style.display = 'block';
+    const introAnimation = document.querySelector('.crawl-animation');
+    introAnimation.style.animation = '';
+    const introStarWarsPage = document.querySelector('.star-wars-container');
+    introStarWarsPage.style.display = 'flex';
+}
+
+const replayIntro = async () => {
+    hideIntroCrawl();
+    await sleep(50);
+    showIntroCrawl();
+}
+
+const unmute = () => {
+    const bgmElem = document.getElementById('audio');
+    bgmElem.muted = false;
+    if (bgmElem.currentTime === 0) {
+        replayIntro();
+    }
+    const unmutedImg = document.getElementById('intro-control-unmute');
+    unmutedImg.style.display = 'block';
+    const mutedImg = document.getElementById('intro-control-mute');
+    mutedImg.style.display = 'none';
+}
+
+const mute = () => {
+    const bgmElem = document.getElementById('audio');
+    bgmElem.muted = true;
+    const unmutedImg = document.getElementById('intro-control-unmute');
+    unmutedImg.style.display = 'none';
+    const mutedImg = document.getElementById('intro-control-mute');
+    mutedImg.style.display = 'block';
+}
+
+const loadRandomIntroStar = () => {
+    const renderStar = async (leftNumPercent, topNumPercent, zDeg) => {
+        const starContainerElem = document.getElementById('star-container');
+        const starContainerCopy = starContainerElem.cloneNode(true);
+        const starElem = document.getElementById('star');
+        const starCopy = starElem.cloneNode(true);
+        starContainerCopy.style.transform = `rotateZ(${zDeg}deg)`;
+        starCopy.style.left = `${leftNumPercent}%`;
+        starCopy.style.top = `${topNumPercent}%`;
+        starElem.parentNode.replaceChild(starCopy, starElem);
+        starContainerElem.parentNode.replaceChild(starContainerCopy, starContainerElem);
+        const randomLeft = Math.floor(Math.random() * 15) + 1;
+        const randomTop = Math.floor(Math.random() * 20) + 1;
+        const randomZDeg = Math.floor(Math.random() * 55) + 1;
+        setTimeout(() => renderStar(randomLeft, randomTop, randomZDeg), 7000);
+    }
+    renderStar(0, 2, 35);
+}
+
+const playBlasterEffect = async () => {
+    const blasterElem = document.querySelector('.blaster');
+    blasterElem.style.transform = 'rotate(-150deg)';
+    const blasterSound = new Audio('assets/blaster.wav');
+    blasterSound.volume = 0.2;
+    blasterSound.play();
+    await sleep(Math.floor(Math.random() * 1600) + 800);
+    const scream = new Audio('assets/wilhelm.wav');
+    scream.volume = 0.3;
+    scream.play();
+}
+
+const openModal = (backgroundRGBA, planet) => {
+    const modalWrapper = document.getElementById('modal-wrapper');
+    modalWrapper.style.display = 'flex';
+    const modal = document.getElementById('open-modal');
+    modal.style.background = backgroundRGBA;
+    if (planet === 'hoth') {
+        const video = document.createElement("video");
+        const source = document.createElement("source");
+        source.setAttribute("src", "assets/ski.mp4");
+        source.setAttribute("type", "video/mp4");
+        video.appendChild(source);
+        modal.appendChild(video);
+        video.classList.add('hobbies-item');
+        setTimeout(() => video.classList.add('animate'), 250);
+        video.playsinline = true;
+        video.muted = true;
+        video.playbackRate = 1.5;
+        video.play();
+        const imageLinks = [
+            'images/whistler1.jpg',
+            'images/whistler2.jpg',
+            'images/dead.jpg',
+        ];
+        imageLinks.map((imageLink, idx) => {
+            const image = document.createElement("img");
+            image.setAttribute('src', imageLink);
+            image.classList.add('hobbies-item');
+            modal.appendChild(image);
+            setTimeout(() => image.classList.add('animate'), (idx + 2) * 250);
+        });
+    } else if (planet === 'alderaan') {
+        const imageLinks = [
+            'images/dog-mountain.jpg',
+            'images/nucks.jpg',
+            'images/tofino.jpg',
+        ];
+        imageLinks.map((imageLink, idx) => {
+            const image = document.createElement("img");
+            image.setAttribute('src', imageLink);
+            image.classList.add('hobbies-item');
+            modal.appendChild(image);
+            setTimeout(() => image.classList.add('animate'), (idx + 1) * 250);
+        });
+    } else if (planet === 'mustafar') {
+        const imageLinks = [
+            'images/minami.png',
+            'images/noods.jpg',
+            'images/squirmies.png',
+            'images/brix.jpg',
+        ];
+        imageLinks.map((imageLink, idx) => {
+            const image = document.createElement("img");
+            image.setAttribute('src', imageLink);
+            image.classList.add('hobbies-item');
+            modal.appendChild(image);
+            setTimeout(() => image.classList.add('animate'), (idx + 1) * 250);
+        });
+    }
+}
+
+const closeModal = () => {
+    const modalWrapper = document.getElementById('modal-wrapper');
+    modalWrapper.style.display = 'none';
+    const modal = document.getElementById('open-modal');
+    modal.innerHTML = '';
+}
+
+const hideAboutBlocks = () => {
+    const aboutLeft = document.getElementById('about-block-left');
+    const aboutRight = document.getElementById('about-block-right');
+    aboutLeft.classList.remove('unfade');
+    aboutRight.classList.remove('unfade');
+}
+
+const showAboutBlocks = () => {
+    const aboutLeft = document.getElementById('about-block-left');
+    const aboutRight = document.getElementById('about-block-right');
+    aboutLeft.classList.add('unfade');
+    aboutRight.classList.add('unfade');
+}
+
+awaitDOMLoad(async () => {
+    updateNav();
+    loadSmoothScroll();
+    renderParallax();
+    loadText('title', 'Hello there,', false, 45);
+    await sleep(1000);
+    loadText('subtitle', 'My name is Hai Lin. Welcome to my website!', false, 45);
+    loadRandomIntroStar();
+});
