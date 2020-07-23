@@ -838,3 +838,18 @@ a {
 .about-block.unfade {
     opacity: 0.88;
 }
+
+.logos-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.logos-container > a {
+    margin: 2%;
+}
+
+.logo {
+    height: 3vw;
+    width: 3vw;
+}
