@@ -1,232 +1,286 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Hai Lin Zhang personal website</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
     <script type="text/javascript" src="index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="scroll-container" onscroll="updateNav(); updateScrollProgressBar();">
-        <div class="content-container">
-            <div class="progress-bar-container">
-                <div class="progress-bar"></div>
-            </div>
-            <div class="nav-container">
-                <a href="#" class="nav-back">
-                    <img src="images/arrow.png" class="arrow left-arrow">
-                </a>
-                <a href="#home" class="nav-home">
-                    <img src="images/home.png" class="arrow home-arrow">
-                </a>
-                <a href="#" class="nav-fwd">
-                    <img src="images/arrow.png" class="arrow right-arrow">
-                </a>
-            </div>
-            <div class="content-block home" id="home">
-                <span class="gradient-filter"></span>
-                <div class="description-container">
-                    <span class="description-title" id="title"></span>
-                    <span class="description-subtitle" id="subtitle"></span>
-                    <span class="anchor-title" id="anchor-text"></span>
-                </div>
-                <a href="#intro" class="death-star-container" id="death-star"
-                    onmouseover="renderTitleText('anchor-text', 'Intro')" onmouseout="clearTitleText('anchor-text')">
-                    <img src="images/death-star.png" class="death-star" data-depth="0.1">
-                </a>
-                <a href="#projects" class="millenium-falcon-container" id="millenium-falcon"
-                    onmouseover="renderTitleText('anchor-text', 'My Projects')"
-                    onmouseout="clearTitleText('anchor-text')">
-                    <img src="images/millenium-falcon.png" class="millenium-falcon" data-depth="0.6">
-                </a>
-                <a href="#workExperience" class="x-wing-container" id="x-wing"
-                    onmouseover="renderTitleText('anchor-text', 'My Work Experience')"
-                    onmouseout="clearTitleText('anchor-text')">
-                    <img src="images/x-wing.png" class="x-wing" data-depth="0.4">
-                </a>
-                <a href="#hobbies" class="left-tie-container" id="left-tie"
-                    onmouseover="renderTitleText('anchor-text', 'My Hobbies')"
-                    onmouseout="clearTitleText('anchor-text')">
-                    <img src="images/tie-fighter.png" class="left-tie" data-depth="0.7">
-                </a>
-                <a href="#aboutMe" class="right-tie-container" id="right-tie"
-                    onmouseover="renderTitleText('anchor-text', 'About Me')" onmouseout="clearTitleText('anchor-text')">
-                    <img src="images/tie-fighter.png" class="right-tie" data-depth="0.8">
-                </a>
-            </div>
-            <div class="content-block intro-opening" id="intro">
-                <div class="intro-controls-container">
-                    <img src="images/replay.svg" class="control-btn" onclick="replayIntro()">
-                    <img src="images/unmute.svg" class="control-btn hidden" id="intro-control-unmute" onclick="mute()">
-                    <img src="images/mute.svg" class="control-btn " id="intro-control-mute" onclick="unmute()">
-                </div>
-                <audio src="assets/star-wars-crawl.mp3" id="audio" autoplay muted loop>
-                    Your browser does not support the
-                    <code>audio</code> element.
-                </audio>
-                <div class="fade"></div>
-                <div class="twinkling"></div>
-                <div class="star-container" id="star-container">
-                    <div class="star" id="star"></div>
-                </div>
-                <div class="intro-text">
-                    A short time ago, in an office far,<br> far away....
-                </div>
-                <div class="star-wars-logo">
-                    <img src="images/star-wars-logo.svg">
-                </div>
-                <div class="star-wars-container">
-                    <div class="crawl-animation">
-                        <div class="title">
-                            <p>Episode IV</p>
-                            <h1>A New Job</h1>
-                        </div>
-
-                        <p>It is a period of civil war. Recruiter spaceships, striking from a hidden base, have won
-                            their
-                            first victory against the job-seeking Hai Lin.</p>
-
-                        <p>During the battle, Recruiter spies managed to steal secret plans to Hai Lin's ultimate
-                            weapon,
-                            the RESUME, an armored space station with enough power to destroy an entire planet.</p>
-
-                        <p>Pursued by Hai Lin's sinister agents, Princess Leia races home aboard her starship,
-                            custodian of the stolen plans that can save her company and restore freedom to the
-                            industry...
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="content-block projects" id="projects">
-                <div class="blaster-container" id="blaster">
-                    <img src="images/blaster.png" class="blaster" data-depth="0.1" onclick="playBlasterEffect()">
-                </div>
-                <div class="projects-container">
-                    <span class="projects-title">Projects</span>
-                    <span class="projects-description-container">
-                        <span class="projects-subtitle">Jean Around the World</span>
-                        <span class="projects-description-top">
-                            <img src="images/jeanAroundTheWorld.jpg" class="projects-description-img">
-                        </span>
-                        <span class="projects-description-bottom projects-border-bottom">
-                            Jean Around the World is a web app that allows users to plan an adventure anywhere in the
-                            world.
-                            Built using a MERN (MongoDB, Express, React, Node.js) stack in a team of 4 students at the
-                            University of British Columbia.
-                            The app takes in a user-specified location and radius to query the Google Places API,
-                            creating a path of restaurants, parks, etc., based on the user's preference!
-                            <span class="link-container">
-                                <img src="images/start.png" class='project-link-button'
-                                    onclick="window.open('http://jeanaroundtheworld.herokuapp.com/')">
-                                <img src="images/source.png" class='project-link-button'
-                                    onclick="window.open('https://github.com/denim-squad/jean-around-the-world/')">
-                            </span>
-                        </span>
-                        <span class="projects-subtitle subtitle-offset">ICBSeat</span>
-                        <span class="projects-description-top">
-                            <img src="images/icbseat.png" class="projects-description-img">
-                        </span>
-                        <span class="projects-description-bottom">
-                            ICBSeat is an office-sharing web application sponsored by ICBC that was built in a team of 7
-                            UBC students.
-                            Using a React, Java (Spring Boot), and PostgreSQL stack, the application handles
-                            administrator functionalities such as room management
-                            and allows users to book and sign their own workspace up for bookings.
-                            <span class="link-container">
-                                <img src="images/start.png" class='project-link-button'
-                                    onclick="window.open('https://icbseat-client.herokuapp.com/')">
-                            </span>
-                        </span>
-                    </span>
-                </div>
-            </div>
-            <div class="content-block work" id="workExperience">
-                <div class="twinkling"></div>
-                <span class="work-container">
-                    <span class="work-item sap-bg">
-                        <img src="images/sap.png" class="work-img sap-img">
-                    </span>
-                    <span class="work-item fs-bg">
-                        <img src="images/fs.png" class="work-img">
-                    </span>
-                    <span class="work-item ubc-bg">
-                        <img src="images/ubc.png" class="work-img">
-                    </span>
-                </span>
-                <span class="work-description-container">
-                    <span class="work-description-item">
-                        I am currently working as an Agile Developer Intern at SAP. I am involved in developing and
-                        maintaining tools which facilitate the translation process. My work includes topics such as
-                        integrations with third-party products as well as performance improvements through lazy loading.
-                    </span>
-                    <span class="work-description-item">
-                        Since September 2018, I have worked at Fatigue Science as a Junior Software Engineer. I work on
-                        the mobile team, focusing on 3 cross-platform mobile applications. As a front-end developer, I
-                        have also assisted in delivering our ReadiAnalytics web application.
-                    </span>
-                    <span class="work-description-item">
-                        I have been a Teaching Assistant for 3 courses (Industry Skills, Introduction to Data Structures
-                        + Algorithms, Introduction to Artificial Intelligence) at the University of British Columbia. I
-                        am involved in running tutorials and labs, answering student queries, and grading assignments
-                        and exams.
-                    </span>
-                </span>
-            </div>
-            <div class="content-block hobbies" id="hobbies">
-                <div class="hobbies-description-container">
-                    <span class="hobbies-subtitle">Things I like to do on...</span>
-                    <span class="anchor-title hobbies-title" id="hobbies-title"></span>
-                </div>
-                <div class="modal-wrapper" id="modal-wrapper">
-                    <div class="modal-container" id="open-modal" onclick="closeModal()">
-                    </div>
-                </div>
-                <div class="twinkling"></div>
-                <div class="hoth-container" id="hoth" onmouseover="renderTitleText('hobbies-title', 'Hoth')"
-                    onmouseout="clearTitleText('hobbies-title')" onclick="openModal('rgba(22, 57, 102, 0.3)', 'hoth')">
-                    <img src="images/hoth.png" class="hoth planet" data-depth="0.1">
-                </div>
-                <div class="alderaan-container" id="alderaan" onmouseover="renderTitleText('hobbies-title', 'Alderaan')"
-                    onmouseout="clearTitleText('hobbies-title')"
-                    onclick="openModal('rgba(60, 179, 113, 0.3)', 'alderaan')">
-                    <img src="images/alderaan.png" class="alderaan planet" data-depth="0.01">
-                </div>
-                <div class="mustafar-container" id="mustafar" onmouseover="renderTitleText('hobbies-title', 'Mustafar')"
-                    onmouseout="clearTitleText('hobbies-title')"
-                    onclick="openModal('rgba(122, 19, 1, 0.3)', 'mustafar')">
-                    <img src="images/mustafar.png" class="mustafar planet" data-depth="0.15">
-                </div>
-            </div>
-            <div class="content-block about" id="aboutMe">
-                <div class="about-block about-left" id="about-block-left">
-                    <h1> About Me </h1> <br>
-                    <span> I'm a 4th-year CS student at the University of British Columbia graduating in May 2021. I'm
-                        particularly interested in frontend development, but my other interests include full
-                        stack/backend development, machine learning, computer vision, and game development. Thanks for
-                        visiting my website!
-                    </span>
-                </div>
-                <div class="about-block about-right" id="about-block-right">
-                    If you are interested in reaching out, feel free to send me a connection request on LinkedIn.
-                    <span class="logos-container">
-                        <a href="https://github.com/hailin-zhang"><img src="images/github.png" class="logo"></a>
-                        <a href="https://www.linkedin.com/in/hai-lin-zhang/"><img src="images/linkedin.png"
-                                class="logo"></a>
-                    </span>
-                </div>
-            </div>
+      <div class="content-container">
+        <div class="progress-bar-container">
+          <div class="progress-bar"></div>
         </div>
-    </div>
-</body>
+        <div class="nav-container">
+          <a href="#" class="nav-back">
+            <img src="images/arrow.png" class="arrow left-arrow" />
+          </a>
+          <a href="#home" class="nav-home">
+            <img src="images/home.png" class="arrow home-arrow" />
+          </a>
+          <a href="#" class="nav-fwd">
+            <img src="images/arrow.png" class="arrow right-arrow" />
+          </a>
+        </div>
+        <div class="content-block home" id="home">
+          <span class="gradient-filter"></span>
+          <div class="description-container">
+            <span class="description-title" id="title"></span>
+            <span class="description-subtitle" id="subtitle"></span>
+            <span class="anchor-title" id="anchor-text"></span>
+          </div>
+          <a
+            href="#intro"
+            class="death-star-container"
+            id="death-star"
+            onmouseover="renderTitleText('anchor-text', 'Intro')"
+            onmouseout="clearTitleText('anchor-text')"
+          >
+            <img src="images/death-star.png" class="death-star" data-depth="0.1" />
+          </a>
+          <a
+            href="#projects"
+            class="millenium-falcon-container"
+            id="millenium-falcon"
+            onmouseover="renderTitleText('anchor-text', 'My Projects')"
+            onmouseout="clearTitleText('anchor-text')"
+          >
+            <img src="images/millenium-falcon.png" class="millenium-falcon" data-depth="0.6" />
+          </a>
+          <a
+            href="#workExperience"
+            class="x-wing-container"
+            id="x-wing"
+            onmouseover="renderTitleText('anchor-text', 'My Work Experience')"
+            onmouseout="clearTitleText('anchor-text')"
+          >
+            <img src="images/x-wing.png" class="x-wing" data-depth="0.4" />
+          </a>
+          <a
+            href="#hobbies"
+            class="left-tie-container"
+            id="left-tie"
+            onmouseover="renderTitleText('anchor-text', 'My Hobbies')"
+            onmouseout="clearTitleText('anchor-text')"
+          >
+            <img src="images/tie-fighter.png" class="left-tie" data-depth="0.7" />
+          </a>
+          <a
+            href="#aboutMe"
+            class="right-tie-container"
+            id="right-tie"
+            onmouseover="renderTitleText('anchor-text', 'About Me')"
+            onmouseout="clearTitleText('anchor-text')"
+          >
+            <img src="images/tie-fighter.png" class="right-tie" data-depth="0.8" />
+          </a>
+        </div>
+        <div class="content-block intro-opening" id="intro">
+          <div class="intro-controls-container">
+            <img src="images/replay.svg" class="control-btn" onclick="replayIntro()" />
+            <img src="images/unmute.svg" class="control-btn hidden" id="intro-control-unmute" onclick="mute()" />
+            <img src="images/mute.svg" class="control-btn" id="intro-control-mute" onclick="unmute()" />
+          </div>
+          <audio src="assets/star-wars-crawl.mp3" id="audio" autoplay muted loop>
+            Your browser does not support the
+            <code>audio</code> element.
+          </audio>
+          <div class="fade"></div>
+          <div class="twinkling"></div>
+          <div class="star-container" id="star-container">
+            <div class="star" id="star"></div>
+          </div>
+          <div class="intro-text">
+            A short time ago, in an office far,<br />
+            far away....
+          </div>
+          <div class="star-wars-logo">
+            <img src="images/star-wars-logo.svg" />
+          </div>
+          <div class="star-wars-container">
+            <div class="crawl-animation">
+              <div class="title">
+                <p>Episode IV</p>
+                <h1>A New Job</h1>
+              </div>
 
+              <p>
+                It is a period of civil war. Recruiter spaceships, striking from a hidden base, have won their first
+                victory against the job-seeking Hai Lin.
+              </p>
+
+              <p>
+                During the battle, Recruiter spies managed to steal secret plans to Hai Lin's ultimate weapon, the
+                RESUME, an armored space station with enough power to destroy an entire planet.
+              </p>
+
+              <p>
+                Pursued by Hai Lin's sinister agents, Princess Leia races home aboard her starship, custodian of the
+                stolen plans that can save her company and restore freedom to the industry...
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="content-block projects" id="projects">
+          <div class="blaster-container" id="blaster">
+            <img src="images/blaster.png" class="blaster" data-depth="0.1" onclick="playBlasterEffect()" />
+          </div>
+          <div class="projects-container">
+            <span class="projects-title">Projects</span>
+            <span class="projects-description-container">
+              <span class="projects-subtitle">Jean Around the World</span>
+              <span class="projects-description-top">
+                <img src="images/jeanAroundTheWorld.jpg" class="projects-description-img" />
+              </span>
+              <span class="projects-description-bottom projects-border-bottom">
+                Jean Around the World is a web app that allows users to plan an adventure anywhere in the world. Built
+                using a MERN (MongoDB, Express, React, Node.js) stack in a team of 4 students at the University of
+                British Columbia. The app takes in a user-specified location and radius to query the Google Places API,
+                creating a path of restaurants, parks, etc., based on the user's preference!
+                <span class="link-container">
+                  <img
+                    src="images/start.png"
+                    class="project-link-button"
+                    onclick="window.open('http://jeanaroundtheworld.herokuapp.com/')"
+                  />
+                  <img
+                    src="images/source.png"
+                    class="project-link-button"
+                    onclick="window.open('https://github.com/denim-squad/jean-around-the-world/')"
+                  />
+                </span>
+              </span>
+              <span class="projects-subtitle subtitle-offset">ICBSeat</span>
+              <span class="projects-description-top">
+                <img src="images/icbseat.png" class="projects-description-img" />
+              </span>
+              <span class="projects-description-bottom">
+                ICBSeat is an office-sharing web application sponsored by ICBC that was built in a team of 7 UBC
+                students. Using a React, Java (Spring Boot), and PostgreSQL stack, the application handles administrator
+                functionalities such as room management and allows users to book and sign their own workspace up for
+                bookings.
+                <span class="link-container">
+                  <img
+                    src="images/start.png"
+                    class="project-link-button"
+                    onclick="window.open('https://icbseat-client.herokuapp.com/')"
+                  />
+                </span>
+              </span>
+            </span>
+          </div>
+        </div>
+        <div class="content-block work" id="workExperience">
+          <div class="twinkling"></div>
+          <span class="work-container">
+            <span class="work-item wday-bg">
+              <img src="images/wday.png" class="work-img" />
+            </span>
+            <span class="work-item fs-bg">
+              <img src="images/fs.png" class="work-img" />
+            </span>
+            <span class="work-item ubc-bg">
+              <img src="images/ubc.png" class="work-img" />
+            </span>
+            <span class="work-item sap-bg">
+              <img src="images/sap.png" class="work-img sap-img" />
+            </span>
+          </span>
+          <span class="work-description-container">
+            <span class="work-description-item">
+              I've recently joined Workday as an Associate Application Developer. I work the Extended Enterprise team, focusing on
+              a subset of Workday Learning for external customers such as contractors.
+            </span>
+            <span class="work-description-item">
+              Since September 2018, I have been at Fatigue Science as a Junior Software Engineer. I work on the mobile
+              team, focusing on multiple cross-platform mobile applications, as well as our web React application.
+            </span>
+            <span class="work-description-item">
+              I have been a Teaching Assistant for Industry Skills, Introduction to Data Structures + Algorithms, and
+              Introduction to Artificial Intelligence courses at the University of British Columbia. I was involved in running
+              tutorials and labs, answering student queries, and grading assignments and exams.
+              <br />
+              <br />
+              More recently, I worked in the Emerging Media Lab at UBC. I was involved in developing a 3D Metabolism
+              project on a web-based platform using A-Frame and WebGL, as well a traditional VR platform using Unity.
+            </span>
+            <span class="work-description-item">
+              I interned at SAP as part of their iXP program. I was involved in developing and maintaining tools which
+              facilitate the translation process. My work included topics such as integrations with third-party products
+              as well as performance improvements through lazy loading.
+            </span>
+          </span>
+        </div>
+        <div class="content-block hobbies" id="hobbies">
+          <div class="hobbies-description-container">
+            <span class="hobbies-subtitle">Things I like to do on...</span>
+            <span class="anchor-title hobbies-title" id="hobbies-title"></span>
+          </div>
+          <div class="modal-wrapper" id="modal-wrapper">
+            <div class="modal-container" id="open-modal" onclick="closeModal()"></div>
+          </div>
+          <div class="twinkling"></div>
+          <div
+            class="hoth-container"
+            id="hoth"
+            onmouseover="renderTitleText('hobbies-title', 'Hoth')"
+            onmouseout="clearTitleText('hobbies-title')"
+            onclick="openModal('rgba(22, 57, 102, 0.3)', 'hoth')"
+          >
+            <img src="images/hoth.png" class="hoth planet" data-depth="0.1" />
+          </div>
+          <div
+            class="alderaan-container"
+            id="alderaan"
+            onmouseover="renderTitleText('hobbies-title', 'Alderaan')"
+            onmouseout="clearTitleText('hobbies-title')"
+            onclick="openModal('rgba(60, 179, 113, 0.3)', 'alderaan')"
+          >
+            <img src="images/alderaan.png" class="alderaan planet" data-depth="0.01" />
+          </div>
+          <div
+            class="mustafar-container"
+            id="mustafar"
+            onmouseover="renderTitleText('hobbies-title', 'Mustafar')"
+            onmouseout="clearTitleText('hobbies-title')"
+            onclick="openModal('rgba(122, 19, 1, 0.3)', 'mustafar')"
+          >
+            <img src="images/mustafar.png" class="mustafar planet" data-depth="0.15" />
+          </div>
+        </div>
+        <div class="content-block about" id="aboutMe">
+          <div class="about-block about-left" id="about-block-left">
+            <h1>About Me</h1>
+            <br />
+            <span>
+              I'm a new grad CS student from the University of British Columbia. I'm particularly interested in frontend development, but my other interests include full stack/backend development, distributed systems, and machine learning.
+              Thanks for visiting my website!
+            </span>
+          </div>
+          <div class="about-block about-right" id="about-block-right">
+            If you are interested in reaching out, feel free to send me a connection request on LinkedIn.
+            <span class="logos-container">
+              <a href="https://github.com/hailin-zhang"><img src="images/github.png" class="logo" /></a>
+              <a href="https://www.linkedin.com/in/hai-lin-zhang/"><img src="images/linkedin.png" class="logo" /></a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
