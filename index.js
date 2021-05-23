@@ -255,11 +255,43 @@ const playBlasterEffect = async () => {
   scream.play();
 };
 
+// pre-load all images
+const hothImages = ["images/whistler1.jpg", "images/whistler2.jpg", "images/dead.jpg"].map((imageLink) => {
+  const image = document.createElement("img");
+  image.setAttribute("src", imageLink);
+  image.classList.add("hobbies-item");
+
+  return image;
+});
+const alderaanImages = ["images/dog-mountain.jpg", "images/nucks.jpg", "images/tofino.jpg"].map((imageLink) => {
+  const image = document.createElement("img");
+  image.setAttribute("src", imageLink);
+  image.classList.add("hobbies-item");
+
+  return image;
+});
+const mustafarImages = ["images/minami.png", "images/noods.jpg", "images/squirmies.png", "images/brix.jpg"].map((imageLink) => {
+  const image = document.createElement("img");
+  image.setAttribute("src", imageLink);
+  image.classList.add("hobbies-item");
+
+  return image;
+});
+
 const openModal = (backgroundRGBA, planet) => {
   const modalWrapper = document.getElementById("modal-wrapper");
   modalWrapper.style.display = "flex";
   const modal = document.getElementById("open-modal");
   modal.style.background = backgroundRGBA;
+  const displayImages = (imageList) => {
+    imageList.map((image, idx) => {
+      if (image.classList.contains("animate")) {
+        image.classList.remove("animate");
+      }
+      modal.appendChild(image);
+      setTimeout(() => image.classList.add("animate"), (idx + 2) * 250);
+    });
+  }
   if (planet === "hoth") {
     const video = document.createElement("video");
     const source = document.createElement("source");
@@ -273,32 +305,11 @@ const openModal = (backgroundRGBA, planet) => {
     video.muted = true;
     video.playbackRate = 1.5;
     video.play();
-    const imageLinks = ["images/whistler1.jpg", "images/whistler2.jpg", "images/dead.jpg"];
-    imageLinks.map((imageLink, idx) => {
-      const image = document.createElement("img");
-      image.setAttribute("src", imageLink);
-      image.classList.add("hobbies-item");
-      modal.appendChild(image);
-      setTimeout(() => image.classList.add("animate"), (idx + 2) * 250);
-    });
+    displayImages(hothImages);
   } else if (planet === "alderaan") {
-    const imageLinks = ["images/dog-mountain.jpg", "images/nucks.jpg", "images/tofino.jpg"];
-    imageLinks.map((imageLink, idx) => {
-      const image = document.createElement("img");
-      image.setAttribute("src", imageLink);
-      image.classList.add("hobbies-item");
-      modal.appendChild(image);
-      setTimeout(() => image.classList.add("animate"), (idx + 1) * 250);
-    });
+    displayImages(alderaanImages);
   } else if (planet === "mustafar") {
-    const imageLinks = ["images/minami.png", "images/noods.jpg", "images/squirmies.png", "images/brix.jpg"];
-    imageLinks.map((imageLink, idx) => {
-      const image = document.createElement("img");
-      image.setAttribute("src", imageLink);
-      image.classList.add("hobbies-item");
-      modal.appendChild(image);
-      setTimeout(() => image.classList.add("animate"), (idx + 1) * 250);
-    });
+    displayImages(mustafarImages);
   }
 };
 
